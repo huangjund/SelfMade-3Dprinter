@@ -1,0 +1,16 @@
+.\objects\automate.o: Automate.cpp
+.\objects\automate.o: Automate.h
+.\objects\automate.o: G:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\stm32f10x.h
+.\objects\automate.o: D:\AMC\AMCHost\RTE\RTE_Components.h
+.\objects\automate.o: G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h
+.\objects\automate.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\automate.o: G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\automate.o: G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\automate.o: G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\automate.o: G:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\system_stm32f10x.h
+.\objects\automate.o: SCONI.h
+.\objects\automate.o: TCONI.h
+.\objects\automate.o: FCONI.h
+.\objects\automate.o: CCONI.h
+.\objects\automate.o: Shell.h
+.\objects\automate.o: Status.h

@@ -1,0 +1,53 @@
+Dependencies for Project 'FileSystem', Target 'FILESYSTEM': (DO NOT MODIFY !)
+F (.\Main.cpp)(0x5BB1DD5D)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\FILESYSTEM-376\RTE-IE:\Stm32F1Project\FILESYSTEM-376\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\FILESYSTEM-376\RTE\RTE_Components.h)(0x5BACD8F9)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (CH376.h)(0x5BB0C361)
+I (Interface.h)(0x5BB1D2D1)
+F (.\CH376.cpp)(0x5BB1B7F6)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\FILESYSTEM-376\RTE-IE:\Stm32F1Project\FILESYSTEM-376\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\ch376.o --omf_browse .\objects\ch376.crf --depend .\objects\ch376.d)
+I (CH376.h)(0x5BB0C361)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\FILESYSTEM-376\RTE\RTE_Components.h)(0x5BACD8F9)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (Interface.h)(0x5BB1D2D1)
+F (.\CH376.h)(0x5BB0C361)()
+F (.\Interface.cpp)(0x5BB1C395)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\FILESYSTEM-376\RTE-IE:\Stm32F1Project\FILESYSTEM-376\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\interface.o --omf_browse .\objects\interface.crf --depend .\objects\interface.d)
+I (Interface.h)(0x5BB1D2D1)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\FILESYSTEM-376\RTE\RTE_Components.h)(0x5BACD8F9)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (CH376.h)(0x5BB0C361)
+F (.\Interface.h)(0x5BB1D2D1)()
+F (.\COM.cpp)(0x5BB1DFE9)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\FILESYSTEM-376\RTE-IE:\Stm32F1Project\FILESYSTEM-376\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\com.o --omf_browse .\objects\com.crf --depend .\objects\com.d)
+I (COM.h)(0x5BB1DFBC)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\FILESYSTEM-376\RTE\RTE_Components.h)(0x5BACD8F9)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+F (.\COM.h)(0x5BB1DFBC)()
+F (RTE\Device\STM32F103C8\RTE_Device.h)(0x57D24F70)()
+F (RTE\Device\STM32F103C8\startup_stm32f10x_md.s)(0x5825386C)(--cpu Cortex-M3 -g --apcs=interwork -IE:\Stm32F1Project\FILESYSTEM-376\RTE-IE:\Stm32F1Project\FILESYSTEM-376\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o .\objects\startup_stm32f10x_md.o --depend .\objects\startup_stm32f10x_md.d)
+F (RTE\Device\STM32F103C8\system_stm32f10x.c)(0x5825386C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\FILESYSTEM-376\RTE-IE:\Stm32F1Project\FILESYSTEM-376\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\FILESYSTEM-376\RTE\RTE_Components.h)(0x5BACD8F9)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)

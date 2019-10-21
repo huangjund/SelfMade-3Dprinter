@@ -1,0 +1,10 @@
+.\objects\interface.o: Interface.cpp
+.\objects\interface.o: Interface.h
+.\objects\interface.o: F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
+.\objects\interface.o: E:\Stm32F1Project\FILESYSTEM-376\RTE\RTE_Components.h
+.\objects\interface.o: F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
+.\objects\interface.o: F:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\interface.o: F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
+.\objects\interface.o: F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
+.\objects\interface.o: F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h
+.\objects\interface.o: CH376.h

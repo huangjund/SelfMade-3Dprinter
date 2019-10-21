@@ -1,0 +1,12 @@
+.\objects\sconi.o: SCONI.cpp
+.\objects\sconi.o: SCONI.h
+.\objects\sconi.o: G:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\stm32f10x.h
+.\objects\sconi.o: D:\AMC\AMCHost\RTE\RTE_Components.h
+.\objects\sconi.o: G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h
+.\objects\sconi.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sconi.o: G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\sconi.o: G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\sconi.o: G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\sconi.o: G:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\system_stm32f10x.h
+.\objects\sconi.o: CBUS.h
+.\objects\sconi.o: Status.h

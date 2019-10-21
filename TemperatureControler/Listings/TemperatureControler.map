@@ -1,0 +1,1096 @@
+Component: ARM Compiler 5.06 update 3 (build 300) Tool: armlink [4d35c9]
+
+==============================================================================
+
+Section Cross References
+
+    main.o(i.main) refers to com.o(i._ZN3COM4InitEv) for COM::Init()
+    main.o(i.main) refers to adc.o(i._ZN6ANALOG4InitEv) for ANALOG::Init()
+    main.o(i.main) refers to pwm.o(i._ZN3PWM4InitEv) for PWM::Init()
+    main.o(i.main) refers to lcd.o(i._ZN3LCD4InitEv) for LCD::Init()
+    main.o(i.main) refers to hcon.o(i._ZN4HCON4InitEv) for HCON::Init()
+    main.o(i.main) refers to ccon.o(i._ZN4CCON4InitEv) for CCON::Init()
+    main.o(i.main) refers to com.o(i._ZN3COM7DecoderEv) for COM::Decoder()
+    main.o(i.main) refers to com.o(.bss) for Serial
+    main.o(i.main) refers to adc.o(.bss) for Analog_Input
+    main.o(i.main) refers to pwm.o(.data) for Digital_Output
+    main.o(i.main) refers to lcd.o(.data) for Lcd
+    main.o(i.main) refers to hcon.o(.bss) for HeaterControler
+    main.o(i.main) refers to ccon.o(.data) for CoolerControler
+    main.o(.ARM.exidx) refers to main.o(i.main) for i.main
+    adc.o(i._ZN6ANALOG11ConvolutionEPxS0_) refers to llsdiv.o(.text) for __aeabi_ldivmod
+    adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv) refers to adc.o(i._ZN6ANALOG11ConvolutionEPxS0_) for ANALOG::Convolution(long long*, long long*)
+    adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv) refers to adc.o(.constdata) for Temp_Table_10K
+    adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv) refers to adc.o(.data) for FILTER
+    adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv) refers to adc.o(i._ZN6ANALOG11ConvolutionEPxS0_) for ANALOG::Convolution(long long*, long long*)
+    adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv) refers to adc.o(.constdata) for Temp_Table_100K
+    adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv) refers to adc.o(.data) for FILTER
+    adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv) refers to adc.o(i._ZN6ANALOG11ConvolutionEPxS0_) for ANALOG::Convolution(long long*, long long*)
+    adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv) refers to adc.o(.constdata) for Temp_Table_100K
+    adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv) refers to adc.o(.data) for FILTER
+    adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv) refers to adc.o(i._ZN6ANALOG11ConvolutionEPxS0_) for ANALOG::Convolution(long long*, long long*)
+    adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv) refers to adc.o(.constdata) for Temp_Table_10K
+    adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv) refers to adc.o(.data) for FILTER
+    adc.o(i._ZN6ANALOG7AverageEPx) refers to llsdiv.o(.text) for __aeabi_ldivmod
+    adc.o(.ARM.exidx) refers to adc.o(i._ZN6ANALOG4InitEv) for i._ZN6ANALOG4InitEv
+    adc.o(.ARM.exidx) refers to adc.o(i._ZN6ANALOG11ConvolutionEPxS0_) for i._ZN6ANALOG11ConvolutionEPxS0_
+    adc.o(.ARM.exidx) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv) for i._ZN6ANALOG23GetTemperatureExtruderAEv
+    adc.o(.ARM.exidx) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv) for i._ZN6ANALOG23GetTemperatureExtruderBEv
+    adc.o(.ARM.exidx) refers to adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv) for i._ZN6ANALOG23GetTemperatureBasePlaneEv
+    adc.o(.ARM.exidx) refers to adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv) for i._ZN6ANALOG25GetTemperatureEnvironmentEv
+    adc.o(.ARM.exidx) refers to adc.o(i._ZN6ANALOG7AverageEPx) for i._ZN6ANALOG7AverageEPx
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM4InitEv) for i._ZN3PWM4InitEv
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21SetPWMHeaterExtruderAEj) for i._ZN3PWM21SetPWMHeaterExtruderAEj
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21SetPWMHeaterExtruderBEj) for i._ZN3PWM21SetPWMHeaterExtruderBEj
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21SetPWMHeaterBasePlaneEj) for i._ZN3PWM21SetPWMHeaterBasePlaneEj
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21SetPWMCoolerExtruderAEj) for i._ZN3PWM21SetPWMCoolerExtruderAEj
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21SetPWMCoolerExtruderBEj) for i._ZN3PWM21SetPWMCoolerExtruderBEj
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21GetPWMHeaterExtruderAEv) for i._ZN3PWM21GetPWMHeaterExtruderAEv
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21GetPWMHeaterExtruderBEv) for i._ZN3PWM21GetPWMHeaterExtruderBEv
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21GetPWMHeaterBasePlaneEv) for i._ZN3PWM21GetPWMHeaterBasePlaneEv
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21GetPWMCoolerExtruderAEv) for i._ZN3PWM21GetPWMCoolerExtruderAEv
+    pwm.o(.ARM.exidx) refers to pwm.o(i._ZN3PWM21GetPWMCoolerExtruderBEv) for i._ZN3PWM21GetPWMCoolerExtruderBEv
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to lcd.o(i._ZN3LCD2TxEh) for LCD::Tx(unsigned char)
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv) for ANALOG::GetTemperatureExtruderA()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to lcd.o(i._ZN3LCD6Tx_numEj) for LCD::Tx_num(unsigned)
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv) for ANALOG::GetTemperatureExtruderB()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv) for ANALOG::GetTemperatureBasePlane()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON19GetExtruderASettingEv) for HCON::GetExtruderASetting()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON19GetExtruderBSettingEv) for HCON::GetExtruderBSetting()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON19GetBasePlaneSettingEv) for HCON::GetBasePlaneSetting()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON23GetPowerHeaterExtruderAEv) for HCON::GetPowerHeaterExtruderA()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON23GetPowerHeaterExtruderBEv) for HCON::GetPowerHeaterExtruderB()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON23GetPowerHeaterBasePlaneEv) for HCON::GetPowerHeaterBasePlane()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to ccon.o(i._ZN4CCON23GetPowerCoolerExtruderAEv) for CCON::GetPowerCoolerExtruderA()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to ccon.o(i._ZN4CCON23GetPowerCoolerExtruderBEv) for CCON::GetPowerCoolerExtruderB()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv) for ANALOG::GetTemperatureEnvironment()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON18GetStatusExtruderAEv) for HCON::GetStatusExtruderA()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON18GetStatusExtruderBEv) for HCON::GetStatusExtruderB()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(i._ZN4HCON18GetStatusBasePlaneEv) for HCON::GetStatusBasePlane()
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to adc.o(.bss) for Analog_Input
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to hcon.o(.bss) for HeaterControler
+    lcd.o(i._ZN3LCD10SentStatusEv) refers to ccon.o(.data) for CoolerControler
+    lcd.o(i._ZN3LCD5PrintEPh) refers to lcd.o(i._ZN3LCD2TxEh) for LCD::Tx(unsigned char)
+    lcd.o(i._ZN3LCD6Tx_numEj) refers to lcd.o(i._ZN3LCD5PrintEPh) for LCD::Print(unsigned char*)
+    lcd.o(i._ZN3LCD6Tx_numEj) refers to lcd.o(.data) for weight
+    lcd.o(.ARM.exidx) refers to lcd.o(i._ZN3LCD4InitEv) for i._ZN3LCD4InitEv
+    lcd.o(.ARM.exidx) refers to lcd.o(i._ZN3LCD2TxEh) for i._ZN3LCD2TxEh
+    lcd.o(.ARM.exidx) refers to lcd.o(i._ZN3LCD5PrintEPh) for i._ZN3LCD5PrintEPh
+    lcd.o(.ARM.exidx) refers to lcd.o(i._ZN3LCD6Tx_numEj) for i._ZN3LCD6Tx_numEj
+    lcd.o(.ARM.exidx) refers to lcd.o(i._ZN3LCD10SentStatusEv) for i._ZN3LCD10SentStatusEv
+    com.o(i.USART3_IRQHandler) refers to com.o(i._ZN3COM11TestAddressEv) for COM::TestAddress()
+    com.o(i.USART3_IRQHandler) refers to com.o(.bss) for Serial
+    com.o(i._ZN3COM3C2QEPh) refers to com.o(.data) for weight
+    com.o(i._ZN3COM5PrintEPc) refers to com.o(i._ZN3COM2TxEh) for COM::Tx(unsigned char)
+    com.o(i._ZN3COM6Tx_numEj) refers to com.o(i._ZN3COM5PrintEPc) for COM::Print(char*)
+    com.o(i._ZN3COM6Tx_numEj) refers to com.o(.data) for weight
+    com.o(i._ZN3COM7DecoderEv) refers to com.o(i._ZN3COM5PrintEPc) for COM::Print(char*)
+    com.o(i._ZN3COM7DecoderEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv) for ANALOG::GetTemperatureExtruderA()
+    com.o(i._ZN3COM7DecoderEv) refers to com.o(i._ZN3COM6Tx_numEj) for COM::Tx_num(unsigned)
+    com.o(i._ZN3COM7DecoderEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv) for ANALOG::GetTemperatureExtruderB()
+    com.o(i._ZN3COM7DecoderEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv) for ANALOG::GetTemperatureBasePlane()
+    com.o(i._ZN3COM7DecoderEv) refers to adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv) for ANALOG::GetTemperatureEnvironment()
+    com.o(i._ZN3COM7DecoderEv) refers to com.o(i._ZN3COM3C2QEPh) for COM::C2Q(unsigned char*)
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON23SetTemperatureExtruderAEj) for HCON::SetTemperatureExtruderA(unsigned)
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON23SetTemperatureExtruderBEj) for HCON::SetTemperatureExtruderB(unsigned)
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON23SetTemperatureBasePlaneEj) for HCON::SetTemperatureBasePlane(unsigned)
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON19GetExtruderASettingEv) for HCON::GetExtruderASetting()
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON19GetExtruderBSettingEv) for HCON::GetExtruderBSetting()
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON19GetBasePlaneSettingEv) for HCON::GetBasePlaneSetting()
+    com.o(i._ZN3COM7DecoderEv) refers to ccon.o(i._ZN4CCON23SetPowerCoolerExtruderAEj) for CCON::SetPowerCoolerExtruderA(unsigned)
+    com.o(i._ZN3COM7DecoderEv) refers to ccon.o(i._ZN4CCON23SetPowerCoolerExtruderBEj) for CCON::SetPowerCoolerExtruderB(unsigned)
+    com.o(i._ZN3COM7DecoderEv) refers to ccon.o(i._ZN4CCON23GetPowerCoolerExtruderAEv) for CCON::GetPowerCoolerExtruderA()
+    com.o(i._ZN3COM7DecoderEv) refers to ccon.o(i._ZN4CCON23GetPowerCoolerExtruderBEv) for CCON::GetPowerCoolerExtruderB()
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON23GetPowerHeaterExtruderAEv) for HCON::GetPowerHeaterExtruderA()
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON23GetPowerHeaterExtruderBEv) for HCON::GetPowerHeaterExtruderB()
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON23GetPowerHeaterBasePlaneEv) for HCON::GetPowerHeaterBasePlane()
+    com.o(i._ZN3COM7DecoderEv) refers to com.o(i._ZN3COM2TxEh) for COM::Tx(unsigned char)
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON18GetStatusExtruderAEv) for HCON::GetStatusExtruderA()
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON18GetStatusExtruderBEv) for HCON::GetStatusExtruderB()
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(i._ZN4HCON18GetStatusBasePlaneEv) for HCON::GetStatusBasePlane()
+    com.o(i._ZN3COM7DecoderEv) refers to com.o(.data) for STRING_ERROR
+    com.o(i._ZN3COM7DecoderEv) refers to com.o(.bss) for Serial
+    com.o(i._ZN3COM7DecoderEv) refers to adc.o(.bss) for Analog_Input
+    com.o(i._ZN3COM7DecoderEv) refers to hcon.o(.bss) for HeaterControler
+    com.o(i._ZN3COM7DecoderEv) refers to ccon.o(.data) for CoolerControler
+    com.o(.ARM.exidx) refers to com.o(i._ZN3COM11TestAddressEv) for i._ZN3COM11TestAddressEv
+    com.o(.ARM.exidx) refers to com.o(i.USART3_IRQHandler) for i.USART3_IRQHandler
+    com.o(.ARM.exidx) refers to com.o(i._ZN3COM4InitEv) for i._ZN3COM4InitEv
+    com.o(.ARM.exidx) refers to com.o(i._ZN3COM2TxEh) for i._ZN3COM2TxEh
+    com.o(.ARM.exidx) refers to com.o(i._ZN3COM5PrintEPc) for i._ZN3COM5PrintEPc
+    com.o(.ARM.exidx) refers to com.o(i._ZN3COM6Tx_numEj) for i._ZN3COM6Tx_numEj
+    com.o(.ARM.exidx) refers to com.o(i._ZN3COM3C2QEPh) for i._ZN3COM3C2QEPh
+    com.o(.ARM.exidx) refers to com.o(i._ZN3COM7DecoderEv) for i._ZN3COM7DecoderEv
+    hcon.o(i.TIM2_IRQHandler) refers to hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) for HCON::CaclPWMExtruderA()
+    hcon.o(i.TIM2_IRQHandler) refers to hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) for HCON::CaclPWMExtruderB()
+    hcon.o(i.TIM2_IRQHandler) refers to hcon.o(i._ZN4HCON16CaclPWMBasePlaneEv) for HCON::CaclPWMBasePlane()
+    hcon.o(i.TIM2_IRQHandler) refers to adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv) for ANALOG::GetTemperatureEnvironment()
+    hcon.o(i.TIM2_IRQHandler) refers to hcon.o(i._ZN4HCON19CaclStatusExtruderAEv) for HCON::CaclStatusExtruderA()
+    hcon.o(i.TIM2_IRQHandler) refers to hcon.o(i._ZN4HCON19CaclStatusExtruderBEv) for HCON::CaclStatusExtruderB()
+    hcon.o(i.TIM2_IRQHandler) refers to hcon.o(i._ZN4HCON19CaclStatusBasePlaneEv) for HCON::CaclStatusBasePlane()
+    hcon.o(i.TIM2_IRQHandler) refers to hcon.o(.data) for Counter
+    hcon.o(i.TIM2_IRQHandler) refers to hcon.o(.bss) for HeaterControler
+    hcon.o(i.TIM2_IRQHandler) refers to adc.o(.bss) for Analog_Input
+    hcon.o(i._ZN4HCON16CaclPWMBasePlaneEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv) for ANALOG::GetTemperatureBasePlane()
+    hcon.o(i._ZN4HCON16CaclPWMBasePlaneEv) refers to pwm.o(i._ZN3PWM21SetPWMHeaterBasePlaneEj) for PWM::SetPWMHeaterBasePlane(unsigned)
+    hcon.o(i._ZN4HCON16CaclPWMBasePlaneEv) refers to adc.o(.bss) for Analog_Input
+    hcon.o(i._ZN4HCON16CaclPWMBasePlaneEv) refers to pwm.o(.data) for Digital_Output
+    hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv) for ANALOG::GetTemperatureExtruderA()
+    hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) refers to llsdiv.o(.text) for __aeabi_ldivmod
+    hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) refers to pwm.o(i._ZN3PWM21SetPWMHeaterExtruderAEj) for PWM::SetPWMHeaterExtruderA(unsigned)
+    hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) refers to hcon.o(.bss) for Register
+    hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) refers to adc.o(.bss) for Analog_Input
+    hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) refers to hcon.o(.data) for Integrator
+    hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) refers to pwm.o(.data) for Digital_Output
+    hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv) for ANALOG::GetTemperatureExtruderB()
+    hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) refers to llsdiv.o(.text) for __aeabi_ldivmod
+    hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) refers to pwm.o(i._ZN3PWM21SetPWMHeaterExtruderBEj) for PWM::SetPWMHeaterExtruderB(unsigned)
+    hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) refers to hcon.o(.bss) for Register
+    hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) refers to adc.o(.bss) for Analog_Input
+    hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) refers to hcon.o(.data) for Integrator
+    hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) refers to pwm.o(.data) for Digital_Output
+    hcon.o(i._ZN4HCON19CaclStatusBasePlaneEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv) for ANALOG::GetTemperatureBasePlane()
+    hcon.o(i._ZN4HCON19CaclStatusBasePlaneEv) refers to adc.o(.bss) for Analog_Input
+    hcon.o(i._ZN4HCON19CaclStatusExtruderAEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv) for ANALOG::GetTemperatureExtruderA()
+    hcon.o(i._ZN4HCON19CaclStatusExtruderAEv) refers to adc.o(.bss) for Analog_Input
+    hcon.o(i._ZN4HCON19CaclStatusExtruderBEv) refers to adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv) for ANALOG::GetTemperatureExtruderB()
+    hcon.o(i._ZN4HCON19CaclStatusExtruderBEv) refers to adc.o(.bss) for Analog_Input
+    hcon.o(i._ZN4HCON23GetPowerHeaterBasePlaneEv) refers to pwm.o(i._ZN3PWM21GetPWMHeaterBasePlaneEv) for PWM::GetPWMHeaterBasePlane()
+    hcon.o(i._ZN4HCON23GetPowerHeaterBasePlaneEv) refers to pwm.o(.data) for Digital_Output
+    hcon.o(i._ZN4HCON23GetPowerHeaterExtruderAEv) refers to pwm.o(i._ZN3PWM21GetPWMHeaterExtruderAEv) for PWM::GetPWMHeaterExtruderA()
+    hcon.o(i._ZN4HCON23GetPowerHeaterExtruderAEv) refers to pwm.o(.data) for Digital_Output
+    hcon.o(i._ZN4HCON23GetPowerHeaterExtruderBEv) refers to pwm.o(i._ZN3PWM21GetPWMHeaterExtruderBEv) for PWM::GetPWMHeaterExtruderB()
+    hcon.o(i._ZN4HCON23GetPowerHeaterExtruderBEv) refers to pwm.o(.data) for Digital_Output
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON19CaclStatusBasePlaneEv) for i._ZN4HCON19CaclStatusBasePlaneEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON19CaclStatusExtruderBEv) for i._ZN4HCON19CaclStatusExtruderBEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON19CaclStatusExtruderAEv) for i._ZN4HCON19CaclStatusExtruderAEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON16CaclPWMBasePlaneEv) for i._ZN4HCON16CaclPWMBasePlaneEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON16CaclPWMExtruderBEv) for i._ZN4HCON16CaclPWMExtruderBEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON16CaclPWMExtruderAEv) for i._ZN4HCON16CaclPWMExtruderAEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i.TIM2_IRQHandler) for i.TIM2_IRQHandler
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON4InitEv) for i._ZN4HCON4InitEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON23SetTemperatureExtruderAEj) for i._ZN4HCON23SetTemperatureExtruderAEj
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON23SetTemperatureExtruderBEj) for i._ZN4HCON23SetTemperatureExtruderBEj
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON23SetTemperatureBasePlaneEj) for i._ZN4HCON23SetTemperatureBasePlaneEj
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON19GetExtruderASettingEv) for i._ZN4HCON19GetExtruderASettingEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON19GetExtruderBSettingEv) for i._ZN4HCON19GetExtruderBSettingEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON19GetBasePlaneSettingEv) for i._ZN4HCON19GetBasePlaneSettingEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON23GetPowerHeaterExtruderAEv) for i._ZN4HCON23GetPowerHeaterExtruderAEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON23GetPowerHeaterExtruderBEv) for i._ZN4HCON23GetPowerHeaterExtruderBEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON23GetPowerHeaterBasePlaneEv) for i._ZN4HCON23GetPowerHeaterBasePlaneEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON18GetStatusExtruderAEv) for i._ZN4HCON18GetStatusExtruderAEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON18GetStatusExtruderBEv) for i._ZN4HCON18GetStatusExtruderBEv
+    hcon.o(.ARM.exidx) refers to hcon.o(i._ZN4HCON18GetStatusBasePlaneEv) for i._ZN4HCON18GetStatusBasePlaneEv
+    ccon.o(i._ZN4CCON23GetPowerCoolerExtruderAEv) refers to pwm.o(i._ZN3PWM21GetPWMCoolerExtruderAEv) for PWM::GetPWMCoolerExtruderA()
+    ccon.o(i._ZN4CCON23GetPowerCoolerExtruderAEv) refers to pwm.o(.data) for Digital_Output
+    ccon.o(i._ZN4CCON23GetPowerCoolerExtruderBEv) refers to pwm.o(i._ZN3PWM21GetPWMCoolerExtruderBEv) for PWM::GetPWMCoolerExtruderB()
+    ccon.o(i._ZN4CCON23GetPowerCoolerExtruderBEv) refers to pwm.o(.data) for Digital_Output
+    ccon.o(i._ZN4CCON23SetPowerCoolerExtruderAEj) refers to pwm.o(i._ZN3PWM21SetPWMCoolerExtruderAEj) for PWM::SetPWMCoolerExtruderA(unsigned)
+    ccon.o(i._ZN4CCON23SetPowerCoolerExtruderAEj) refers to pwm.o(.data) for Digital_Output
+    ccon.o(i._ZN4CCON23SetPowerCoolerExtruderBEj) refers to pwm.o(i._ZN3PWM21SetPWMCoolerExtruderBEj) for PWM::SetPWMCoolerExtruderB(unsigned)
+    ccon.o(i._ZN4CCON23SetPowerCoolerExtruderBEj) refers to pwm.o(.data) for Digital_Output
+    ccon.o(i._ZN4CCON4InitEv) refers to ccon.o(i._ZN4CCON23SetPowerCoolerExtruderAEj) for CCON::SetPowerCoolerExtruderA(unsigned)
+    ccon.o(i._ZN4CCON4InitEv) refers to ccon.o(i._ZN4CCON23SetPowerCoolerExtruderBEj) for CCON::SetPowerCoolerExtruderB(unsigned)
+    ccon.o(.ARM.exidx) refers to ccon.o(i._ZN4CCON23SetPowerCoolerExtruderBEj) for i._ZN4CCON23SetPowerCoolerExtruderBEj
+    ccon.o(.ARM.exidx) refers to ccon.o(i._ZN4CCON23SetPowerCoolerExtruderAEj) for i._ZN4CCON23SetPowerCoolerExtruderAEj
+    ccon.o(.ARM.exidx) refers to ccon.o(i._ZN4CCON4InitEv) for i._ZN4CCON4InitEv
+    ccon.o(.ARM.exidx) refers to ccon.o(i._ZN4CCON23GetPowerCoolerExtruderAEv) for i._ZN4CCON23GetPowerCoolerExtruderAEv
+    ccon.o(.ARM.exidx) refers to ccon.o(i._ZN4CCON23GetPowerCoolerExtruderBEv) for i._ZN4CCON23GetPowerCoolerExtruderBEv
+    startup_stm32f10x_md.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f10x_md.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f10x_md.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(STACK) for __initial_sp
+    startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(.text) for Reset_Handler
+    startup_stm32f10x_md.o(RESET) refers to hcon.o(i.TIM2_IRQHandler) for TIM2_IRQHandler
+    startup_stm32f10x_md.o(RESET) refers to com.o(i.USART3_IRQHandler) for USART3_IRQHandler
+    startup_stm32f10x_md.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f10x_md.o(.text) refers to system_stm32f10x.o(i.SystemInit) for SystemInit
+    startup_stm32f10x_md.o(.text) refers to __main.o(!!!main) for __main
+    startup_stm32f10x_md.o(.text) refers to startup_stm32f10x_md.o(HEAP) for Heap_Mem
+    startup_stm32f10x_md.o(.text) refers to startup_stm32f10x_md.o(STACK) for Stack_Mem
+    system_stm32f10x.o(i.SetSysClock) refers to system_stm32f10x.o(i.SetSysClockTo72) for SetSysClockTo72
+    system_stm32f10x.o(i.SystemCoreClockUpdate) refers to system_stm32f10x.o(.data) for SystemCoreClock
+    system_stm32f10x.o(i.SystemInit) refers to system_stm32f10x.o(i.SetSysClock) for SetSysClock
+    llsdiv.o(.text) refers to lludivv7m.o(.text) for __aeabi_uldivmod
+    __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main.o(i.main) for main
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    __rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    __rtentry4.o(.ARM.exidx) refers to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    aeabi_ldiv0_sigfpe.o(.text) refers to rt_div0.o(.text) for __rt_div0
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to startup_stm32f10x_md.o(.text) for __user_initial_stackheap
+    rt_div0.o(.text) refers to defsig_fpe_outer.o(.text) for __rt_SIGFPE
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000002) for __rt_lib_init_fp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_preinit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000033) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_user_alloc_1
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    defsig_fpe_outer.o(.text) refers to defsig_fpe_inner.o(.text) for __rt_SIGFPE_inner
+    defsig_fpe_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_fpe_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000002) for __rt_lib_shutdown_cpp_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000007) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000010) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000004) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C) for __rt_lib_shutdown_user_alloc_1
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    defsig.o(CL$$defsig) refers to defsig_fpe_inner.o(.text) for __rt_SIGFPE_inner
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing main.o(.rev16_text), (4 bytes).
+    Removing main.o(.revsh_text), (4 bytes).
+    Removing main.o(.rrx_text), (6 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing adc.o(.rev16_text), (4 bytes).
+    Removing adc.o(.revsh_text), (4 bytes).
+    Removing adc.o(.rrx_text), (6 bytes).
+    Removing adc.o(i._ZN6ANALOG7AverageEPx), (52 bytes).
+    Removing adc.o(.ARM.exidx), (8 bytes).
+    Removing adc.o(.ARM.exidx), (8 bytes).
+    Removing adc.o(.ARM.exidx), (8 bytes).
+    Removing adc.o(.ARM.exidx), (8 bytes).
+    Removing adc.o(.ARM.exidx), (8 bytes).
+    Removing adc.o(.ARM.exidx), (8 bytes).
+    Removing adc.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.rev16_text), (4 bytes).
+    Removing pwm.o(.revsh_text), (4 bytes).
+    Removing pwm.o(.rrx_text), (6 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing pwm.o(.ARM.exidx), (8 bytes).
+    Removing lcd.o(.rev16_text), (4 bytes).
+    Removing lcd.o(.revsh_text), (4 bytes).
+    Removing lcd.o(.rrx_text), (6 bytes).
+    Removing lcd.o(i._ZN3LCD10SentStatusEv), (292 bytes).
+    Removing lcd.o(i._ZN3LCD2TxEh), (28 bytes).
+    Removing lcd.o(i._ZN3LCD5PrintEPh), (42 bytes).
+    Removing lcd.o(i._ZN3LCD6Tx_numEj), (72 bytes).
+    Removing lcd.o(.ARM.exidx), (8 bytes).
+    Removing lcd.o(.ARM.exidx), (8 bytes).
+    Removing lcd.o(.ARM.exidx), (8 bytes).
+    Removing lcd.o(.ARM.exidx), (8 bytes).
+    Removing lcd.o(.ARM.exidx), (8 bytes).
+    Removing com.o(.rev16_text), (4 bytes).
+    Removing com.o(.revsh_text), (4 bytes).
+    Removing com.o(.rrx_text), (6 bytes).
+    Removing com.o(.ARM.exidx), (8 bytes).
+    Removing com.o(.ARM.exidx), (8 bytes).
+    Removing com.o(.ARM.exidx), (8 bytes).
+    Removing com.o(.ARM.exidx), (8 bytes).
+    Removing com.o(.ARM.exidx), (8 bytes).
+    Removing com.o(.ARM.exidx), (8 bytes).
+    Removing com.o(.ARM.exidx), (8 bytes).
+    Removing com.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.rev16_text), (4 bytes).
+    Removing hcon.o(.revsh_text), (4 bytes).
+    Removing hcon.o(.rrx_text), (6 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing hcon.o(.ARM.exidx), (8 bytes).
+    Removing ccon.o(.rev16_text), (4 bytes).
+    Removing ccon.o(.revsh_text), (4 bytes).
+    Removing ccon.o(.rrx_text), (6 bytes).
+    Removing ccon.o(.ARM.exidx), (8 bytes).
+    Removing ccon.o(.ARM.exidx), (8 bytes).
+    Removing ccon.o(.ARM.exidx), (8 bytes).
+    Removing ccon.o(.ARM.exidx), (8 bytes).
+    Removing ccon.o(.ARM.exidx), (8 bytes).
+    Removing system_stm32f10x.o(.rev16_text), (4 bytes).
+    Removing system_stm32f10x.o(.revsh_text), (4 bytes).
+    Removing system_stm32f10x.o(.rrx_text), (6 bytes).
+    Removing system_stm32f10x.o(i.SystemCoreClockUpdate), (164 bytes).
+    Removing system_stm32f10x.o(.data), (20 bytes).
+
+88 unused section(s) (total 1238 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
+    ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
+    ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
+    ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/longlong.s                       0x00000000   Number         0  lludivv7m.o ABSOLUTE
+    ../clib/longlong.s                       0x00000000   Number         0  llsdiv.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
+    ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
+    ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
+    ADC.cpp                                  0x00000000   Number         0  adc.o ABSOLUTE
+    ADC.cpp                                  0x00000000   Number         0  adc.o ABSOLUTE
+    CCON.cpp                                 0x00000000   Number         0  ccon.o ABSOLUTE
+    CCON.cpp                                 0x00000000   Number         0  ccon.o ABSOLUTE
+    COM.cpp                                  0x00000000   Number         0  com.o ABSOLUTE
+    COM.cpp                                  0x00000000   Number         0  com.o ABSOLUTE
+    HCON.cpp                                 0x00000000   Number         0  hcon.o ABSOLUTE
+    HCON.cpp                                 0x00000000   Number         0  hcon.o ABSOLUTE
+    LCD.cpp                                  0x00000000   Number         0  lcd.o ABSOLUTE
+    LCD.cpp                                  0x00000000   Number         0  lcd.o ABSOLUTE
+    Main.cpp                                 0x00000000   Number         0  main.o ABSOLUTE
+    Main.cpp                                 0x00000000   Number         0  main.o ABSOLUTE
+    PWM.cpp                                  0x00000000   Number         0  pwm.o ABSOLUTE
+    PWM.cpp                                  0x00000000   Number         0  pwm.o ABSOLUTE
+    RTE\Device\STM32F103C8\startup_stm32f10x_md.s 0x00000000   Number         0  startup_stm32f10x_md.o ABSOLUTE
+    RTE\Device\STM32F103C8\system_stm32f10x.c 0x00000000   Number         0  system_stm32f10x.o ABSOLUTE
+    RTE\\Device\\STM32F103C8\\system_stm32f10x.c 0x00000000   Number         0  system_stm32f10x.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    RESET                                    0x08000000   Section      236  startup_stm32f10x_md.o(RESET)
+    !!!main                                  0x080000ec   Section        8  __main.o(!!!main)
+    !!!scatter                               0x080000f4   Section       52  __scatter.o(!!!scatter)
+    !!handler_copy                           0x08000128   Section       26  __scatter_copy.o(!!handler_copy)
+    !!handler_zi                             0x08000144   Section       28  __scatter_zi.o(!!handler_zi)
+    .ARM.Collect$$libinit$$00000000          0x08000160   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
+    .ARM.Collect$$libinit$$00000002          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    .ARM.Collect$$libinit$$00000004          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    .ARM.Collect$$libinit$$0000000A          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
+    .ARM.Collect$$libinit$$0000000C          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    .ARM.Collect$$libinit$$0000000E          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    .ARM.Collect$$libinit$$00000011          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000011)
+    .ARM.Collect$$libinit$$00000013          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    .ARM.Collect$$libinit$$00000015          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    .ARM.Collect$$libinit$$00000017          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    .ARM.Collect$$libinit$$00000019          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    .ARM.Collect$$libinit$$0000001B          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    .ARM.Collect$$libinit$$0000001D          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    .ARM.Collect$$libinit$$0000001F          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    .ARM.Collect$$libinit$$00000021          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    .ARM.Collect$$libinit$$00000023          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    .ARM.Collect$$libinit$$00000025          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    .ARM.Collect$$libinit$$0000002C          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
+    .ARM.Collect$$libinit$$0000002E          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    .ARM.Collect$$libinit$$00000030          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    .ARM.Collect$$libinit$$00000032          0x08000162   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    .ARM.Collect$$libinit$$00000033          0x08000162   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000033)
+    .ARM.Collect$$libshutdown$$00000000      0x08000164   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    .ARM.Collect$$libshutdown$$00000002      0x08000166   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    .ARM.Collect$$libshutdown$$00000004      0x08000166   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    .ARM.Collect$$libshutdown$$00000007      0x08000166   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    .ARM.Collect$$libshutdown$$0000000A      0x08000166   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    .ARM.Collect$$libshutdown$$0000000C      0x08000166   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    .ARM.Collect$$libshutdown$$0000000F      0x08000166   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    .ARM.Collect$$libshutdown$$00000010      0x08000166   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    .ARM.Collect$$rtentry$$00000000          0x08000168   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    .ARM.Collect$$rtentry$$00000002          0x08000168   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    .ARM.Collect$$rtentry$$00000004          0x08000168   Section        6  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    .ARM.Collect$$rtentry$$00000009          0x0800016e   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    .ARM.Collect$$rtentry$$0000000A          0x0800016e   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    .ARM.Collect$$rtentry$$0000000C          0x08000172   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    .ARM.Collect$$rtentry$$0000000D          0x08000172   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    .ARM.Collect$$rtexit$$00000000           0x0800017a   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    .ARM.Collect$$rtexit$$00000002           0x0800017c   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    .ARM.Collect$$rtexit$$00000003           0x0800017c   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    .ARM.Collect$$rtexit$$00000004           0x08000180   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    .text                                    0x08000188   Section       64  startup_stm32f10x_md.o(.text)
+    .text                                    0x080001c8   Section       72  llsdiv.o(.text)
+    .text                                    0x08000210   Section        0  heapauxi.o(.text)
+    .text                                    0x08000216   Section      238  lludivv7m.o(.text)
+    .text                                    0x08000304   Section       74  sys_stackheap_outer.o(.text)
+    .text                                    0x0800034e   Section        0  exit.o(.text)
+    .text                                    0x08000360   Section        8  libspace.o(.text)
+    .text                                    0x08000368   Section        0  sys_exit.o(.text)
+    .text                                    0x08000374   Section        2  use_no_semi.o(.text)
+    .text                                    0x08000376   Section        0  indicate_semi.o(.text)
+    i.SetSysClock                            0x08000376   Section        0  system_stm32f10x.o(i.SetSysClock)
+    SetSysClock                              0x08000377   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
+    i.SetSysClockTo72                        0x08000380   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
+    SetSysClockTo72                          0x08000381   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
+    i.SystemInit                             0x08000460   Section        0  system_stm32f10x.o(i.SystemInit)
+    i.TIM2_IRQHandler                        0x080004c0   Section        0  hcon.o(i.TIM2_IRQHandler)
+    i.USART3_IRQHandler                      0x08000530   Section        0  com.o(i.USART3_IRQHandler)
+    i._ZN3COM11TestAddressEv                 0x080005f4   Section        0  com.o(i._ZN3COM11TestAddressEv)
+    i._ZN3COM2TxEh                           0x0800061c   Section        0  com.o(i._ZN3COM2TxEh)
+    i._ZN3COM3C2QEPh                         0x08000638   Section        0  com.o(i._ZN3COM3C2QEPh)
+    i._ZN3COM4InitEv                         0x08000664   Section        0  com.o(i._ZN3COM4InitEv)
+    i._ZN3COM5PrintEPc                       0x0800072c   Section        0  com.o(i._ZN3COM5PrintEPc)
+    i._ZN3COM6Tx_numEj                       0x08000770   Section        0  com.o(i._ZN3COM6Tx_numEj)
+    i._ZN3COM7DecoderEv                      0x080007c4   Section        0  com.o(i._ZN3COM7DecoderEv)
+    i._ZN3LCD4InitEv                         0x08000b04   Section        0  lcd.o(i._ZN3LCD4InitEv)
+    i._ZN3PWM21GetPWMCoolerExtruderAEv       0x08000b94   Section        0  pwm.o(i._ZN3PWM21GetPWMCoolerExtruderAEv)
+    i._ZN3PWM21GetPWMCoolerExtruderBEv       0x08000bac   Section        0  pwm.o(i._ZN3PWM21GetPWMCoolerExtruderBEv)
+    i._ZN3PWM21GetPWMHeaterBasePlaneEv       0x08000bc4   Section        0  pwm.o(i._ZN3PWM21GetPWMHeaterBasePlaneEv)
+    i._ZN3PWM21GetPWMHeaterExtruderAEv       0x08000bdc   Section        0  pwm.o(i._ZN3PWM21GetPWMHeaterExtruderAEv)
+    i._ZN3PWM21GetPWMHeaterExtruderBEv       0x08000bf4   Section        0  pwm.o(i._ZN3PWM21GetPWMHeaterExtruderBEv)
+    i._ZN3PWM21SetPWMCoolerExtruderAEj       0x08000c0c   Section        0  pwm.o(i._ZN3PWM21SetPWMCoolerExtruderAEj)
+    i._ZN3PWM21SetPWMCoolerExtruderBEj       0x08000c24   Section        0  pwm.o(i._ZN3PWM21SetPWMCoolerExtruderBEj)
+    i._ZN3PWM21SetPWMHeaterBasePlaneEj       0x08000c3c   Section        0  pwm.o(i._ZN3PWM21SetPWMHeaterBasePlaneEj)
+    i._ZN3PWM21SetPWMHeaterExtruderAEj       0x08000c54   Section        0  pwm.o(i._ZN3PWM21SetPWMHeaterExtruderAEj)
+    i._ZN3PWM21SetPWMHeaterExtruderBEj       0x08000c6c   Section        0  pwm.o(i._ZN3PWM21SetPWMHeaterExtruderBEj)
+    i._ZN3PWM4InitEv                         0x08000c84   Section        0  pwm.o(i._ZN3PWM4InitEv)
+    i._ZN4CCON23GetPowerCoolerExtruderAEv    0x08000e04   Section        0  ccon.o(i._ZN4CCON23GetPowerCoolerExtruderAEv)
+    i._ZN4CCON23GetPowerCoolerExtruderBEv    0x08000e14   Section        0  ccon.o(i._ZN4CCON23GetPowerCoolerExtruderBEv)
+    i._ZN4CCON23SetPowerCoolerExtruderAEj    0x08000e24   Section        0  ccon.o(i._ZN4CCON23SetPowerCoolerExtruderAEj)
+    i._ZN4CCON23SetPowerCoolerExtruderBEj    0x08000e38   Section        0  ccon.o(i._ZN4CCON23SetPowerCoolerExtruderBEj)
+    i._ZN4CCON4InitEv                        0x08000e4c   Section        0  ccon.o(i._ZN4CCON4InitEv)
+    i._ZN4HCON16CaclPWMBasePlaneEv           0x08000e64   Section        0  hcon.o(i._ZN4HCON16CaclPWMBasePlaneEv)
+    i._ZN4HCON16CaclPWMExtruderAEv           0x08000eb4   Section        0  hcon.o(i._ZN4HCON16CaclPWMExtruderAEv)
+    i._ZN4HCON16CaclPWMExtruderBEv           0x08001000   Section        0  hcon.o(i._ZN4HCON16CaclPWMExtruderBEv)
+    i._ZN4HCON18GetStatusBasePlaneEv         0x08001150   Section        0  hcon.o(i._ZN4HCON18GetStatusBasePlaneEv)
+    i._ZN4HCON18GetStatusExtruderAEv         0x08001156   Section        0  hcon.o(i._ZN4HCON18GetStatusExtruderAEv)
+    i._ZN4HCON18GetStatusExtruderBEv         0x0800115c   Section        0  hcon.o(i._ZN4HCON18GetStatusExtruderBEv)
+    i._ZN4HCON19CaclStatusBasePlaneEv        0x08001164   Section        0  hcon.o(i._ZN4HCON19CaclStatusBasePlaneEv)
+    i._ZN4HCON19CaclStatusExtruderAEv        0x080011a4   Section        0  hcon.o(i._ZN4HCON19CaclStatusExtruderAEv)
+    i._ZN4HCON19CaclStatusExtruderBEv        0x080011e4   Section        0  hcon.o(i._ZN4HCON19CaclStatusExtruderBEv)
+    i._ZN4HCON19GetBasePlaneSettingEv        0x08001224   Section        0  hcon.o(i._ZN4HCON19GetBasePlaneSettingEv)
+    i._ZN4HCON19GetExtruderASettingEv        0x08001234   Section        0  hcon.o(i._ZN4HCON19GetExtruderASettingEv)
+    i._ZN4HCON19GetExtruderBSettingEv        0x08001248   Section        0  hcon.o(i._ZN4HCON19GetExtruderBSettingEv)
+    i._ZN4HCON23GetPowerHeaterBasePlaneEv    0x0800125c   Section        0  hcon.o(i._ZN4HCON23GetPowerHeaterBasePlaneEv)
+    i._ZN4HCON23GetPowerHeaterExtruderAEv    0x0800126c   Section        0  hcon.o(i._ZN4HCON23GetPowerHeaterExtruderAEv)
+    i._ZN4HCON23GetPowerHeaterExtruderBEv    0x0800127c   Section        0  hcon.o(i._ZN4HCON23GetPowerHeaterExtruderBEv)
+    i._ZN4HCON23SetTemperatureBasePlaneEj    0x0800128c   Section        0  hcon.o(i._ZN4HCON23SetTemperatureBasePlaneEj)
+    i._ZN4HCON23SetTemperatureExtruderAEj    0x0800129a   Section        0  hcon.o(i._ZN4HCON23SetTemperatureExtruderAEj)
+    i._ZN4HCON23SetTemperatureExtruderBEj    0x080012ac   Section        0  hcon.o(i._ZN4HCON23SetTemperatureExtruderBEj)
+    i._ZN4HCON4InitEv                        0x080012c0   Section        0  hcon.o(i._ZN4HCON4InitEv)
+    i._ZN6ANALOG11ConvolutionEPxS0_          0x08001330   Section        0  adc.o(i._ZN6ANALOG11ConvolutionEPxS0_)
+    i._ZN6ANALOG23GetTemperatureBasePlaneEv  0x080013a4   Section        0  adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv)
+    i._ZN6ANALOG23GetTemperatureExtruderAEv  0x08001404   Section        0  adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv)
+    i._ZN6ANALOG23GetTemperatureExtruderBEv  0x08001450   Section        0  adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv)
+    i._ZN6ANALOG25GetTemperatureEnvironmentEv 0x080014b0   Section        0  adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv)
+    i._ZN6ANALOG4InitEv                      0x08001514   Section        0  adc.o(i._ZN6ANALOG4InitEv)
+    i.main                                   0x08001648   Section        0  main.o(i.main)
+    .constdata                               0x080016c0   Section    16384  adc.o(.constdata)
+    Temp_Table_100K                          0x080016c0   Data        8192  adc.o(.constdata)
+    Temp_Table_10K                           0x080036c0   Data        8192  adc.o(.constdata)
+    .data                                    0x20000000   Section       44  adc.o(.data)
+    .data                                    0x2000002c   Section        1  pwm.o(.data)
+    .data                                    0x20000030   Section       20  lcd.o(.data)
+    weight                                   0x20000034   Data          16  lcd.o(.data)
+    .data                                    0x20000044   Section      100  com.o(.data)
+    weight                                   0x20000050   Data          44  com.o(.data)
+    weight                                   0x2000007c   Data          44  com.o(.data)
+    .data                                    0x200000a8   Section       24  hcon.o(.data)
+    Counter                                  0x200000a8   Data           4  hcon.o(.data)
+    Integrator                               0x200000b0   Data           8  hcon.o(.data)
+    Integrator                               0x200000b8   Data           8  hcon.o(.data)
+    .data                                    0x200000c0   Section        1  ccon.o(.data)
+    .bss                                     0x200000c8   Section      160  adc.o(.bss)
+    .bss                                     0x20000168   Section       52  com.o(.bss)
+    .bss                                     0x200001a0   Section       48  hcon.o(.bss)
+    Register                                 0x200001b0   Data          16  hcon.o(.bss)
+    Register                                 0x200001c0   Data          16  hcon.o(.bss)
+    .bss                                     0x200001d0   Section       96  libspace.o(.bss)
+    HEAP                                     0x20000230   Section      512  startup_stm32f10x_md.o(HEAP)
+    Heap_Mem                                 0x20000230   Data         512  startup_stm32f10x_md.o(HEAP)
+    STACK                                    0x20000430   Section     1024  startup_stm32f10x_md.o(STACK)
+    Stack_Mem                                0x20000430   Data        1024  startup_stm32f10x_md.o(STACK)
+    __initial_sp                             0x20000830   Data           0  startup_stm32f10x_md.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$P$D$K$B$S$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$ROPI$EBA8$UX$STANDARDLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  main.o ABSOLUTE
+    __ARM_exceptions_init                     - Undefined Weak Reference
+    __alloca_initialize                       - Undefined Weak Reference
+    __arm_preinit_                            - Undefined Weak Reference
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __rt_locale                               - Undefined Weak Reference
+    __sigvec_lookup                           - Undefined Weak Reference
+    _atexit_init                              - Undefined Weak Reference
+    _call_atexit_fns                          - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _fp_trap_init                             - Undefined Weak Reference
+    _fp_trap_shutdown                         - Undefined Weak Reference
+    _get_lc_collate                           - Undefined Weak Reference
+    _get_lc_ctype                             - Undefined Weak Reference
+    _get_lc_monetary                          - Undefined Weak Reference
+    _get_lc_numeric                           - Undefined Weak Reference
+    _get_lc_time                              - Undefined Weak Reference
+    _getenv_init                              - Undefined Weak Reference
+    _handle_redirection                       - Undefined Weak Reference
+    _init_alloc                               - Undefined Weak Reference
+    _init_user_alloc                          - Undefined Weak Reference
+    _initio                                   - Undefined Weak Reference
+    _rand_init                                - Undefined Weak Reference
+    _signal_finish                            - Undefined Weak Reference
+    _signal_init                              - Undefined Weak Reference
+    _terminate_alloc                          - Undefined Weak Reference
+    _terminate_user_alloc                     - Undefined Weak Reference
+    _terminateio                              - Undefined Weak Reference
+    __Vectors_Size                           0x000000ec   Number         0  startup_stm32f10x_md.o ABSOLUTE
+    __Vectors                                0x08000000   Data           4  startup_stm32f10x_md.o(RESET)
+    __Vectors_End                            0x080000ec   Data           0  startup_stm32f10x_md.o(RESET)
+    __main                                   0x080000ed   Thumb Code     8  __main.o(!!!main)
+    __scatterload                            0x080000f5   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_rt2                        0x080000f5   Thumb Code    44  __scatter.o(!!!scatter)
+    __scatterload_rt2_thumb_only             0x080000f5   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_null                       0x08000103   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_copy                       0x08000129   Thumb Code    26  __scatter_copy.o(!!handler_copy)
+    __scatterload_zeroinit                   0x08000145   Thumb Code    28  __scatter_zi.o(!!handler_zi)
+    __rt_lib_init                            0x08000161   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
+    __rt_lib_init_alloca_1                   0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    __rt_lib_init_argv_1                     0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
+    __rt_lib_init_atexit_1                   0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    __rt_lib_init_clock_1                    0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    __rt_lib_init_cpp_1                      0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    __rt_lib_init_exceptions_1               0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    __rt_lib_init_fp_1                       0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    __rt_lib_init_fp_trap_1                  0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    __rt_lib_init_getenv_1                   0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    __rt_lib_init_heap_1                     0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
+    __rt_lib_init_lc_collate_1               0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000011)
+    __rt_lib_init_lc_ctype_1                 0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    __rt_lib_init_lc_monetary_1              0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    __rt_lib_init_lc_numeric_1               0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    __rt_lib_init_lc_time_1                  0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    __rt_lib_init_preinit_1                  0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    __rt_lib_init_rand_1                     0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    __rt_lib_init_return                     0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000033)
+    __rt_lib_init_signal_1                   0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    __rt_lib_init_stdio_1                    0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    __rt_lib_init_user_alloc_1               0x08000163   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    __rt_lib_shutdown                        0x08000165   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    __rt_lib_shutdown_cpp_1                  0x08000167   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    __rt_lib_shutdown_fp_trap_1              0x08000167   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    __rt_lib_shutdown_heap_1                 0x08000167   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    __rt_lib_shutdown_return                 0x08000167   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    __rt_lib_shutdown_signal_1               0x08000167   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    __rt_lib_shutdown_stdio_1                0x08000167   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    __rt_lib_shutdown_user_alloc_1           0x08000167   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    __rt_entry                               0x08000169   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    __rt_entry_presh_1                       0x08000169   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    __rt_entry_sh                            0x08000169   Thumb Code     0  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    __rt_entry_li                            0x0800016f   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    __rt_entry_postsh_1                      0x0800016f   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    __rt_entry_main                          0x08000173   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __rt_entry_postli_1                      0x08000173   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    __rt_exit                                0x0800017b   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    __rt_exit_ls                             0x0800017d   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    __rt_exit_prels_1                        0x0800017d   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    __rt_exit_exit                           0x08000181   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    Reset_Handler                            0x08000189   Thumb Code     8  startup_stm32f10x_md.o(.text)
+    NMI_Handler                              0x08000191   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    HardFault_Handler                        0x08000193   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    MemManage_Handler                        0x08000195   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    BusFault_Handler                         0x08000197   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    UsageFault_Handler                       0x08000199   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    SVC_Handler                              0x0800019b   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    DebugMon_Handler                         0x0800019d   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    PendSV_Handler                           0x0800019f   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    SysTick_Handler                          0x080001a1   Thumb Code     2  startup_stm32f10x_md.o(.text)
+    ADC1_2_IRQHandler                        0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    CAN1_RX1_IRQHandler                      0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    CAN1_SCE_IRQHandler                      0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel1_IRQHandler                 0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel2_IRQHandler                 0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel3_IRQHandler                 0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel4_IRQHandler                 0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel5_IRQHandler                 0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel6_IRQHandler                 0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel7_IRQHandler                 0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI0_IRQHandler                         0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI15_10_IRQHandler                     0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI1_IRQHandler                         0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI2_IRQHandler                         0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI3_IRQHandler                         0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI4_IRQHandler                         0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI9_5_IRQHandler                       0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    FLASH_IRQHandler                         0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    I2C1_ER_IRQHandler                       0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    I2C1_EV_IRQHandler                       0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    I2C2_ER_IRQHandler                       0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    I2C2_EV_IRQHandler                       0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    PVD_IRQHandler                           0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    RCC_IRQHandler                           0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    RTCAlarm_IRQHandler                      0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    RTC_IRQHandler                           0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    SPI1_IRQHandler                          0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    SPI2_IRQHandler                          0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TAMPER_IRQHandler                        0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM1_BRK_IRQHandler                      0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM1_CC_IRQHandler                       0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM1_TRG_COM_IRQHandler                  0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM1_UP_IRQHandler                       0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM3_IRQHandler                          0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM4_IRQHandler                          0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USART1_IRQHandler                        0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USART2_IRQHandler                        0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USBWakeUp_IRQHandler                     0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USB_HP_CAN1_TX_IRQHandler                0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USB_LP_CAN1_RX0_IRQHandler               0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    WWDG_IRQHandler                          0x080001a3   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    __user_initial_stackheap                 0x080001a5   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    __aeabi_ldivmod                          0x080001c9   Thumb Code     0  llsdiv.o(.text)
+    _ll_sdiv                                 0x080001c9   Thumb Code    72  llsdiv.o(.text)
+    __use_two_region_memory                  0x08000211   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_escrow$2region                 0x08000213   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_expand$2region                 0x08000215   Thumb Code     2  heapauxi.o(.text)
+    __aeabi_uldivmod                         0x08000217   Thumb Code     0  lludivv7m.o(.text)
+    _ll_udiv                                 0x08000217   Thumb Code   238  lludivv7m.o(.text)
+    __user_setup_stackheap                   0x08000305   Thumb Code    74  sys_stackheap_outer.o(.text)
+    exit                                     0x0800034f   Thumb Code    18  exit.o(.text)
+    __user_libspace                          0x08000361   Thumb Code     8  libspace.o(.text)
+    __user_perproc_libspace                  0x08000361   Thumb Code     0  libspace.o(.text)
+    __user_perthread_libspace                0x08000361   Thumb Code     0  libspace.o(.text)
+    _sys_exit                                0x08000369   Thumb Code     8  sys_exit.o(.text)
+    __I$use$semihosting                      0x08000375   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x08000375   Thumb Code     2  use_no_semi.o(.text)
+    __semihosting_library_function           0x08000377   Thumb Code     0  indicate_semi.o(.text)
+    SystemInit                               0x08000461   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
+    TIM2_IRQHandler                          0x080004c1   Thumb Code    98  hcon.o(i.TIM2_IRQHandler)
+    USART3_IRQHandler                        0x08000531   Thumb Code   188  com.o(i.USART3_IRQHandler)
+    COM::TestAddress()                       0x080005f5   Thumb Code    40  com.o(i._ZN3COM11TestAddressEv)
+    COM::Tx(unsigned char)                   0x0800061d   Thumb Code    22  com.o(i._ZN3COM2TxEh)
+    COM::C2Q(unsigned char*)                 0x08000639   Thumb Code    40  com.o(i._ZN3COM3C2QEPh)
+    COM::Init()                              0x08000665   Thumb Code   178  com.o(i._ZN3COM4InitEv)
+    COM::Print(char*)                        0x0800072d   Thumb Code    66  com.o(i._ZN3COM5PrintEPc)
+    COM::Tx_num(unsigned)                    0x08000771   Thumb Code    78  com.o(i._ZN3COM6Tx_numEj)
+    COM::Decoder()                           0x080007c5   Thumb Code   802  com.o(i._ZN3COM7DecoderEv)
+    LCD::Init()                              0x08000b05   Thumb Code   122  lcd.o(i._ZN3LCD4InitEv)
+    PWM::GetPWMCoolerExtruderA()             0x08000b95   Thumb Code    20  pwm.o(i._ZN3PWM21GetPWMCoolerExtruderAEv)
+    PWM::GetPWMCoolerExtruderB()             0x08000bad   Thumb Code    20  pwm.o(i._ZN3PWM21GetPWMCoolerExtruderBEv)
+    PWM::GetPWMHeaterBasePlane()             0x08000bc5   Thumb Code    20  pwm.o(i._ZN3PWM21GetPWMHeaterBasePlaneEv)
+    PWM::GetPWMHeaterExtruderA()             0x08000bdd   Thumb Code    20  pwm.o(i._ZN3PWM21GetPWMHeaterExtruderAEv)
+    PWM::GetPWMHeaterExtruderB()             0x08000bf5   Thumb Code    20  pwm.o(i._ZN3PWM21GetPWMHeaterExtruderBEv)
+    PWM::SetPWMCoolerExtruderA(unsigned)     0x08000c0d   Thumb Code    18  pwm.o(i._ZN3PWM21SetPWMCoolerExtruderAEj)
+    PWM::SetPWMCoolerExtruderB(unsigned)     0x08000c25   Thumb Code    18  pwm.o(i._ZN3PWM21SetPWMCoolerExtruderBEj)
+    PWM::SetPWMHeaterBasePlane(unsigned)     0x08000c3d   Thumb Code    18  pwm.o(i._ZN3PWM21SetPWMHeaterBasePlaneEj)
+    PWM::SetPWMHeaterExtruderA(unsigned)     0x08000c55   Thumb Code    18  pwm.o(i._ZN3PWM21SetPWMHeaterExtruderAEj)
+    PWM::SetPWMHeaterExtruderB(unsigned)     0x08000c6d   Thumb Code    18  pwm.o(i._ZN3PWM21SetPWMHeaterExtruderBEj)
+    PWM::Init()                              0x08000c85   Thumb Code   364  pwm.o(i._ZN3PWM4InitEv)
+    CCON::GetPowerCoolerExtruderA()          0x08000e05   Thumb Code    12  ccon.o(i._ZN4CCON23GetPowerCoolerExtruderAEv)
+    CCON::GetPowerCoolerExtruderB()          0x08000e15   Thumb Code    12  ccon.o(i._ZN4CCON23GetPowerCoolerExtruderBEv)
+    CCON::SetPowerCoolerExtruderA(unsigned)  0x08000e25   Thumb Code    16  ccon.o(i._ZN4CCON23SetPowerCoolerExtruderAEj)
+    CCON::SetPowerCoolerExtruderB(unsigned)  0x08000e39   Thumb Code    16  ccon.o(i._ZN4CCON23SetPowerCoolerExtruderBEj)
+    CCON::Init()                             0x08000e4d   Thumb Code    22  ccon.o(i._ZN4CCON4InitEv)
+    HCON::CaclPWMBasePlane()                 0x08000e65   Thumb Code    70  hcon.o(i._ZN4HCON16CaclPWMBasePlaneEv)
+    HCON::CaclPWMExtruderA()                 0x08000eb5   Thumb Code   314  hcon.o(i._ZN4HCON16CaclPWMExtruderAEv)
+    HCON::CaclPWMExtruderB()                 0x08001001   Thumb Code   318  hcon.o(i._ZN4HCON16CaclPWMExtruderBEv)
+    HCON::GetStatusBasePlane()               0x08001151   Thumb Code     6  hcon.o(i._ZN4HCON18GetStatusBasePlaneEv)
+    HCON::GetStatusExtruderA()               0x08001157   Thumb Code     6  hcon.o(i._ZN4HCON18GetStatusExtruderAEv)
+    HCON::GetStatusExtruderB()               0x0800115d   Thumb Code     6  hcon.o(i._ZN4HCON18GetStatusExtruderBEv)
+    HCON::CaclStatusBasePlane()              0x08001165   Thumb Code    60  hcon.o(i._ZN4HCON19CaclStatusBasePlaneEv)
+    HCON::CaclStatusExtruderA()              0x080011a5   Thumb Code    60  hcon.o(i._ZN4HCON19CaclStatusExtruderAEv)
+    HCON::CaclStatusExtruderB()              0x080011e5   Thumb Code    60  hcon.o(i._ZN4HCON19CaclStatusExtruderBEv)
+    HCON::GetBasePlaneSetting()              0x08001225   Thumb Code    16  hcon.o(i._ZN4HCON19GetBasePlaneSettingEv)
+    HCON::GetExtruderASetting()              0x08001235   Thumb Code    20  hcon.o(i._ZN4HCON19GetExtruderASettingEv)
+    HCON::GetExtruderBSetting()              0x08001249   Thumb Code    20  hcon.o(i._ZN4HCON19GetExtruderBSettingEv)
+    HCON::GetPowerHeaterBasePlane()          0x0800125d   Thumb Code    12  hcon.o(i._ZN4HCON23GetPowerHeaterBasePlaneEv)
+    HCON::GetPowerHeaterExtruderA()          0x0800126d   Thumb Code    12  hcon.o(i._ZN4HCON23GetPowerHeaterExtruderAEv)
+    HCON::GetPowerHeaterExtruderB()          0x0800127d   Thumb Code    12  hcon.o(i._ZN4HCON23GetPowerHeaterExtruderBEv)
+    HCON::SetTemperatureBasePlane(unsigned)  0x0800128d   Thumb Code    14  hcon.o(i._ZN4HCON23SetTemperatureBasePlaneEj)
+    HCON::SetTemperatureExtruderA(unsigned)  0x0800129b   Thumb Code    18  hcon.o(i._ZN4HCON23SetTemperatureExtruderAEj)
+    HCON::SetTemperatureExtruderB(unsigned)  0x080012ad   Thumb Code    18  hcon.o(i._ZN4HCON23SetTemperatureExtruderBEj)
+    HCON::Init()                             0x080012c1   Thumb Code    98  hcon.o(i._ZN4HCON4InitEv)
+    ANALOG::Convolution(long long*, long long*) 0x08001331   Thumb Code   112  adc.o(i._ZN6ANALOG11ConvolutionEPxS0_)
+    ANALOG::GetTemperatureBasePlane()        0x080013a5   Thumb Code    84  adc.o(i._ZN6ANALOG23GetTemperatureBasePlaneEv)
+    ANALOG::GetTemperatureExtruderA()        0x08001405   Thumb Code    62  adc.o(i._ZN6ANALOG23GetTemperatureExtruderAEv)
+    ANALOG::GetTemperatureExtruderB()        0x08001451   Thumb Code    84  adc.o(i._ZN6ANALOG23GetTemperatureExtruderBEv)
+    ANALOG::GetTemperatureEnvironment()      0x080014b1   Thumb Code    86  adc.o(i._ZN6ANALOG25GetTemperatureEnvironmentEv)
+    ANALOG::Init()                           0x08001515   Thumb Code   294  adc.o(i._ZN6ANALOG4InitEv)
+    main                                     0x08001649   Thumb Code    88  main.o(i.main)
+    Region$$Table$$Base                      0x080056c0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x080056e0   Number         0  anon$$obj.o(Region$$Table)
+    Filter_Window                            0x20000000   Data          40  adc.o(.data)
+    FILTER                                   0x20000028   Data           4  adc.o(.data)
+    Digital_Output                           0x2000002c   Data           1  pwm.o(.data)
+    Lcd                                      0x20000030   Data           1  lcd.o(.data)
+    STRING_DONE                              0x20000044   Data           4  com.o(.data)
+    STRING_NONE                              0x20000048   Data           4  com.o(.data)
+    STRING_ERROR                             0x2000004c   Data           4  com.o(.data)
+    CoolerControler                          0x200000c0   Data           1  ccon.o(.data)
+    Analog_Input                             0x200000c8   Data         160  adc.o(.bss)
+    Serial                                   0x20000168   Data          52  com.o(.bss)
+    HeaterControler                          0x200001a0   Data          16  hcon.o(.bss)
+    __libspace_start                         0x200001d0   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000230   Data           0  libspace.o(.bss)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x080000ed
+
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000057a4, Max: 0x00010000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x000056e0, Max: 0x00010000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08000000   0x000000ec   Data   RO          569    RESET               startup_stm32f10x_md.o
+    0x080000ec   0x00000008   Code   RO          649  * !!!main             c_w.l(__main.o)
+    0x080000f4   0x00000034   Code   RO          818    !!!scatter          c_w.l(__scatter.o)
+    0x08000128   0x0000001a   Code   RO          820    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x08000142   0x00000002   PAD
+    0x08000144   0x0000001c   Code   RO          822    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x08000160   0x00000002   Code   RO          684    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x08000162   0x00000000   Code   RO          695    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          697    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          700    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          702    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          704    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          707    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          709    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          711    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          713    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          715    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          717    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          719    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          721    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          723    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          725    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          727    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          731    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          733    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          735    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          737    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x08000162   0x00000002   Code   RO          738    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x08000164   0x00000002   Code   RO          768    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000166   0x00000000   Code   RO          785    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          787    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          790    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          793    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          795    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          798    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x08000166   0x00000002   Code   RO          799    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x08000168   0x00000000   Code   RO          651    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x08000168   0x00000000   Code   RO          655    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x08000168   0x00000006   Code   RO          667    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0800016e   0x00000000   Code   RO          657    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0800016e   0x00000004   Code   RO          658    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x08000172   0x00000000   Code   RO          660    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x08000172   0x00000008   Code   RO          661    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x0800017a   0x00000002   Code   RO          688    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x0800017c   0x00000000   Code   RO          740    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x0800017c   0x00000004   Code   RO          741    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000180   0x00000006   Code   RO          742    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x08000186   0x00000002   PAD
+    0x08000188   0x00000040   Code   RO          570    .text               startup_stm32f10x_md.o
+    0x080001c8   0x00000048   Code   RO          645    .text               c_w.l(llsdiv.o)
+    0x08000210   0x00000006   Code   RO          647    .text               c_w.l(heapauxi.o)
+    0x08000216   0x000000ee   Code   RO          652    .text               c_w.l(lludivv7m.o)
+    0x08000304   0x0000004a   Code   RO          673    .text               c_w.l(sys_stackheap_outer.o)
+    0x0800034e   0x00000012   Code   RO          677    .text               c_w.l(exit.o)
+    0x08000360   0x00000008   Code   RO          685    .text               c_w.l(libspace.o)
+    0x08000368   0x0000000c   Code   RO          756    .text               c_w.l(sys_exit.o)
+    0x08000374   0x00000002   Code   RO          773    .text               c_w.l(use_no_semi.o)
+    0x08000376   0x00000000   Code   RO          775    .text               c_w.l(indicate_semi.o)
+    0x08000376   0x00000008   Code   RO          577    i.SetSysClock       system_stm32f10x.o
+    0x0800037e   0x00000002   PAD
+    0x08000380   0x000000e0   Code   RO          578    i.SetSysClockTo72   system_stm32f10x.o
+    0x08000460   0x00000060   Code   RO          580    i.SystemInit        system_stm32f10x.o
+    0x080004c0   0x00000070   Code   RO          370    i.TIM2_IRQHandler   hcon.o
+    0x08000530   0x000000c4   Code   RO          296    i.USART3_IRQHandler  com.o
+    0x080005f4   0x00000028   Code   RO          297    i._ZN3COM11TestAddressEv  com.o
+    0x0800061c   0x0000001c   Code   RO          298    i._ZN3COM2TxEh      com.o
+    0x08000638   0x0000002c   Code   RO          299    i._ZN3COM3C2QEPh    com.o
+    0x08000664   0x000000c8   Code   RO          300    i._ZN3COM4InitEv    com.o
+    0x0800072c   0x00000042   Code   RO          301    i._ZN3COM5PrintEPc  com.o
+    0x0800076e   0x00000002   PAD
+    0x08000770   0x00000054   Code   RO          302    i._ZN3COM6Tx_numEj  com.o
+    0x080007c4   0x00000340   Code   RO          303    i._ZN3COM7DecoderEv  com.o
+    0x08000b04   0x00000090   Code   RO          244    i._ZN3LCD4InitEv    lcd.o
+    0x08000b94   0x00000018   Code   RO          152    i._ZN3PWM21GetPWMCoolerExtruderAEv  pwm.o
+    0x08000bac   0x00000018   Code   RO          153    i._ZN3PWM21GetPWMCoolerExtruderBEv  pwm.o
+    0x08000bc4   0x00000018   Code   RO          154    i._ZN3PWM21GetPWMHeaterBasePlaneEv  pwm.o
+    0x08000bdc   0x00000018   Code   RO          155    i._ZN3PWM21GetPWMHeaterExtruderAEv  pwm.o
+    0x08000bf4   0x00000018   Code   RO          156    i._ZN3PWM21GetPWMHeaterExtruderBEv  pwm.o
+    0x08000c0c   0x00000018   Code   RO          157    i._ZN3PWM21SetPWMCoolerExtruderAEj  pwm.o
+    0x08000c24   0x00000018   Code   RO          158    i._ZN3PWM21SetPWMCoolerExtruderBEj  pwm.o
+    0x08000c3c   0x00000018   Code   RO          159    i._ZN3PWM21SetPWMHeaterBasePlaneEj  pwm.o
+    0x08000c54   0x00000018   Code   RO          160    i._ZN3PWM21SetPWMHeaterExtruderAEj  pwm.o
+    0x08000c6c   0x00000018   Code   RO          161    i._ZN3PWM21SetPWMHeaterExtruderBEj  pwm.o
+    0x08000c84   0x00000180   Code   RO          162    i._ZN3PWM4InitEv    pwm.o
+    0x08000e04   0x00000010   Code   RO          516    i._ZN4CCON23GetPowerCoolerExtruderAEv  ccon.o
+    0x08000e14   0x00000010   Code   RO          517    i._ZN4CCON23GetPowerCoolerExtruderBEv  ccon.o
+    0x08000e24   0x00000014   Code   RO          518    i._ZN4CCON23SetPowerCoolerExtruderAEj  ccon.o
+    0x08000e38   0x00000014   Code   RO          519    i._ZN4CCON23SetPowerCoolerExtruderBEj  ccon.o
+    0x08000e4c   0x00000016   Code   RO          520    i._ZN4CCON4InitEv   ccon.o
+    0x08000e62   0x00000002   PAD
+    0x08000e64   0x00000050   Code   RO          371    i._ZN4HCON16CaclPWMBasePlaneEv  hcon.o
+    0x08000eb4   0x0000014c   Code   RO          372    i._ZN4HCON16CaclPWMExtruderAEv  hcon.o
+    0x08001000   0x00000150   Code   RO          373    i._ZN4HCON16CaclPWMExtruderBEv  hcon.o
+    0x08001150   0x00000006   Code   RO          374    i._ZN4HCON18GetStatusBasePlaneEv  hcon.o
+    0x08001156   0x00000006   Code   RO          375    i._ZN4HCON18GetStatusExtruderAEv  hcon.o
+    0x0800115c   0x00000006   Code   RO          376    i._ZN4HCON18GetStatusExtruderBEv  hcon.o
+    0x08001162   0x00000002   PAD
+    0x08001164   0x00000040   Code   RO          377    i._ZN4HCON19CaclStatusBasePlaneEv  hcon.o
+    0x080011a4   0x00000040   Code   RO          378    i._ZN4HCON19CaclStatusExtruderAEv  hcon.o
+    0x080011e4   0x00000040   Code   RO          379    i._ZN4HCON19CaclStatusExtruderBEv  hcon.o
+    0x08001224   0x00000010   Code   RO          380    i._ZN4HCON19GetBasePlaneSettingEv  hcon.o
+    0x08001234   0x00000014   Code   RO          381    i._ZN4HCON19GetExtruderASettingEv  hcon.o
+    0x08001248   0x00000014   Code   RO          382    i._ZN4HCON19GetExtruderBSettingEv  hcon.o
+    0x0800125c   0x00000010   Code   RO          383    i._ZN4HCON23GetPowerHeaterBasePlaneEv  hcon.o
+    0x0800126c   0x00000010   Code   RO          384    i._ZN4HCON23GetPowerHeaterExtruderAEv  hcon.o
+    0x0800127c   0x00000010   Code   RO          385    i._ZN4HCON23GetPowerHeaterExtruderBEv  hcon.o
+    0x0800128c   0x0000000e   Code   RO          386    i._ZN4HCON23SetTemperatureBasePlaneEj  hcon.o
+    0x0800129a   0x00000012   Code   RO          387    i._ZN4HCON23SetTemperatureExtruderAEj  hcon.o
+    0x080012ac   0x00000012   Code   RO          388    i._ZN4HCON23SetTemperatureExtruderBEj  hcon.o
+    0x080012be   0x00000002   PAD
+    0x080012c0   0x00000070   Code   RO          389    i._ZN4HCON4InitEv   hcon.o
+    0x08001330   0x00000074   Code   RO           82    i._ZN6ANALOG11ConvolutionEPxS0_  adc.o
+    0x080013a4   0x00000060   Code   RO           83    i._ZN6ANALOG23GetTemperatureBasePlaneEv  adc.o
+    0x08001404   0x0000004c   Code   RO           84    i._ZN6ANALOG23GetTemperatureExtruderAEv  adc.o
+    0x08001450   0x00000060   Code   RO           85    i._ZN6ANALOG23GetTemperatureExtruderBEv  adc.o
+    0x080014b0   0x00000064   Code   RO           86    i._ZN6ANALOG25GetTemperatureEnvironmentEv  adc.o
+    0x08001514   0x00000134   Code   RO           87    i._ZN6ANALOG4InitEv  adc.o
+    0x08001648   0x00000078   Code   RO            4    i.main              main.o
+    0x080016c0   0x00004000   Data   RO           97    .constdata          adc.o
+    0x080056c0   0x00000020   Data   RO          816    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000830, Max: 0x00005000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x0000002c   Data   RW           98    .data               adc.o
+    0x2000002c   0x00000001   Data   RW          174    .data               pwm.o
+    0x2000002d   0x00000003   PAD
+    0x20000030   0x00000014   Data   RW          252    .data               lcd.o
+    0x20000044   0x00000064   Data   RW          313    .data               com.o
+    0x200000a8   0x00000018   Data   RW          411    .data               hcon.o
+    0x200000c0   0x00000001   Data   RW          526    .data               ccon.o
+    0x200000c1   0x00000007   PAD
+    0x200000c8   0x000000a0   Zero   RW           96    .bss                adc.o
+    0x20000168   0x00000034   Zero   RW          312    .bss                com.o
+    0x2000019c   0x00000004   PAD
+    0x200001a0   0x00000030   Zero   RW          410    .bss                hcon.o
+    0x200001d0   0x00000060   Zero   RW          686    .bss                c_w.l(libspace.o)
+    0x20000230   0x00000200   Zero   RW          568    HEAP                startup_stm32f10x_md.o
+    0x20000430   0x00000400   Zero   RW          567    STACK               startup_stm32f10x_md.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       792         70      16384         44        160       5124   adc.o
+        94         16          0          1          0       2846   ccon.o
+      1490         76          0        100         52       5782   com.o
+      1336         98          0         24         48      11088   hcon.o
+       144         22          0         20          0       1506   lcd.o
+       120         32          0          0          0     206575   main.o
+       624         70          0          1          0       5673   pwm.o
+        64         26        236          0       1536        804   startup_stm32f10x_md.o
+       328         28          0          0          0       6441   system_stm32f10x.o
+
+    ----------------------------------------------------------------------
+      5002        438      16652        196       1804     245839   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+        10          0          0          6          8          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         6          0          0          0          0          0   __rtentry4.o
+        52          8          0          0          0          0   __scatter.o
+        26          0          0          0          0          0   __scatter_copy.o
+        28          0          0          0          0          0   __scatter_zi.o
+        18          0          0          0          0         80   exit.o
+         6          0          0          0          0        152   heapauxi.o
+         0          0          0          0          0          0   indicate_semi.o
+         2          0          0          0          0          0   libinit.o
+         2          0          0          0          0          0   libinit2.o
+         2          0          0          0          0          0   libshutdown.o
+         2          0          0          0          0          0   libshutdown2.o
+         8          4          0          0         96         68   libspace.o
+        72          0          0          0          0         76   llsdiv.o
+       238          0          0          0          0        100   lludivv7m.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        12          4          0          0          0         68   sys_exit.o
+        74          0          0          0          0         80   sys_stackheap_outer.o
+         2          0          0          0          0         68   use_no_semi.o
+
+    ----------------------------------------------------------------------
+       586         16          0          0         96        760   Library Totals
+         4          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       582         16          0          0         96        760   c_w.l
+
+    ----------------------------------------------------------------------
+       586         16          0          0         96        760   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      5588        454      16652        196       1900     243631   Grand Totals
+      5588        454      16652        196       1900     243631   ELF Image Totals
+      5588        454      16652        196          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                22240 (  21.72kB)
+    Total RW  Size (RW Data + ZI Data)              2096 (   2.05kB)
+    Total ROM Size (Code + RO Data + RW Data)      22436 (  21.91kB)
+
+==============================================================================
+

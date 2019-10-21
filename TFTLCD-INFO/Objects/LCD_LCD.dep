@@ -1,0 +1,90 @@
+Dependencies for Project 'LCD', Target 'LCD': (DO NOT MODIFY !)
+F (.\Main.cpp)(0x5BB481A2)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\TFTLCD-INFO\RTE\RTE_Components.h)(0x5BB1F8A0)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (LCD.h)(0x5BB1F93A)
+I (GUI.h)(0x5BB1F9D6)
+I (Status.h)(0x5BB20C08)
+I (COM.h)(0x5BB4822D)
+F (.\Status.cpp)(0x5BB5F20A)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\status.o --omf_browse .\objects\status.crf --depend .\objects\status.d)
+I (Status.h)(0x5BB20C08)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\TFTLCD-INFO\RTE\RTE_Components.h)(0x5BB1F8A0)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (GUI.h)(0x5BB1F9D6)
+F (.\Status.h)(0x5BB20C08)()
+F (.\LCD.cpp)(0x5BB1F929)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
+I (LCD.h)(0x5BB1F93A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\TFTLCD-INFO\RTE\RTE_Components.h)(0x5BB1F8A0)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+F (.\LCD.h)(0x5BB1F93A)()
+F (.\GUI.cpp)(0x5BB1FCCF)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\gui.o --omf_browse .\objects\gui.crf --depend .\objects\gui.d)
+I (GUI.h)(0x5BB1F9D6)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\TFTLCD-INFO\RTE\RTE_Components.h)(0x5BB1F8A0)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (LCD.h)(0x5BB1F93A)
+I (ASCII.h)(0x5BB1F9FF)
+I (ARC.h)(0x5BB1FA0C)
+F (.\ASCII.cpp)(0x5BB1F993)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\ascii.o --omf_browse .\objects\ascii.crf --depend .\objects\ascii.d)
+I (ASCII.h)(0x5BB1F9FF)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\TFTLCD-INFO\RTE\RTE_Components.h)(0x5BB1F8A0)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+F (.\ARC.cpp)(0x5BB1F9AA)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\arc.o --omf_browse .\objects\arc.crf --depend .\objects\arc.d)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\TFTLCD-INFO\RTE\RTE_Components.h)(0x5BB1F8A0)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (ARC.h)(0x5BB1FA0C)
+F (.\GUI.h)(0x5BB1F9D6)()
+F (.\ASCII.h)(0x5BB1F9FF)()
+F (.\ARC.h)(0x5BB1FA0C)()
+F (.\COM.cpp)(0x5BB4BB1C)(--cpp -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\com.o --omf_browse .\objects\com.crf --depend .\objects\com.d)
+I (COM.h)(0x5BB4822D)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\TFTLCD-INFO\RTE\RTE_Components.h)(0x5BB1F8A0)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)
+I (Status.h)(0x5BB20C08)
+I (GUI.h)(0x5BB1F9D6)
+I (LCD.h)(0x5BB1F93A)
+F (.\COM.h)(0x5BB4822D)()
+F (RTE\Device\STM32F103C8\RTE_Device.h)(0x57D24F70)()
+F (RTE\Device\STM32F103C8\startup_stm32f10x_md.s)(0x5825386C)(--cpu Cortex-M3 -g --apcs=interwork -IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o .\objects\startup_stm32f10x_md.o --depend .\objects\startup_stm32f10x_md.d)
+F (RTE\Device\STM32F103C8\system_stm32f10x.c)(0x5825386C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-IE:\Stm32F1Project\TFTLCD-INFO\RTE-IE:\Stm32F1Project\TFTLCD-INFO\RTE\Device\STM32F103C8-IF:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h)(0x5825386C)
+I (E:\Stm32F1Project\TFTLCD-INFO\RTE\RTE_Components.h)(0x5BB1F8A0)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h)(0x5898498A)
+I (F:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
+I (F:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h)(0x5825386C)

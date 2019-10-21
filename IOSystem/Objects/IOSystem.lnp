@@ -1,0 +1,13 @@
+--cpu Cortex-M3
+".\objects\main.o"
+".\objects\spout.o"
+".\objects\spin.o"
+".\objects\spio.o"
+".\objects\com.o"
+".\objects\status.o"
+".\objects\startup_stm32f10x_md.o"
+".\objects\system_stm32f10x.o"
+--strict --scatter ".\Objects\IOSystem.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\IOSystem.map" -o .\Objects\IOSystem.axf

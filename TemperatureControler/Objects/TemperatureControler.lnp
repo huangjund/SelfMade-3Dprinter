@@ -1,0 +1,14 @@
+--cpu Cortex-M3
+".\objects\main.o"
+".\objects\adc.o"
+".\objects\pwm.o"
+".\objects\lcd.o"
+".\objects\com.o"
+".\objects\hcon.o"
+".\objects\ccon.o"
+".\objects\startup_stm32f10x_md.o"
+".\objects\system_stm32f10x.o"
+--strict --scatter ".\Objects\TemperatureControler.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\TemperatureControler.map" -o .\Objects\TemperatureControler.axf

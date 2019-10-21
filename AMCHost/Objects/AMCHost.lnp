@@ -1,0 +1,19 @@
+--cpu Cortex-M3
+".\objects\main.o"
+".\objects\automate.o"
+".\objects\cbus.o"
+".\objects\sconi.o"
+".\objects\tconi.o"
+".\objects\ibus.o"
+".\objects\fconi.o"
+".\objects\cconi.o"
+".\objects\abus.o"
+".\objects\status.o"
+".\objects\shell.o"
+".\objects\instruction.o"
+".\objects\startup_stm32f10x_md.o"
+".\objects\system_stm32f10x.o"
+--strict --scatter ".\Objects\AMCHost.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\AMCHost.map" -o .\Objects\AMCHost.axf
