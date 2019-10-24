@@ -1,12 +1,12 @@
 #include "stm32f10x.h"
 
-//IO总线：封装用于定义校验、缓存、接收发送数据、标志
+
 class IBUS{
 	public:
 		void Init();
 	
-		u8 TempBuffer[1152]; //接收缓存
-		u8 Buffer[1152]; //辅助接受缓存
+		u8 TempBuffer[255]; //接收缓存
+		u8 Buffer[255]; //辅助接受缓存
 		bool RxFinish; //接收完成标志
 		u8 DataCounter; //数据量
 		u8 DataNumber; //总数据量

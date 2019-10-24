@@ -5,8 +5,8 @@ CBUS Cbus;
 extern"C"void USART3_IRQHandler(){
 	if(USART3->SR & 0x01) //校验错误
 		Cbus.VerifyError = 1;
-	if(USART3->SR & 0x01<<5){ //起始：受到数据
-		u8 Temp = USART3->DR;//8位数据值
+	if(USART3->SR & 0x01<<5){ //起始
+		u8 Temp = USART3->DR;
 		if(Temp == '%'){ //起始
 			Cbus.TempBuffer[0] = Temp;
 			Cbus.DataCounter = 1;
@@ -26,35 +26,33 @@ extern"C"void USART3_IRQHandler(){
 
 void CBUS::Init(){
 	//RX-PB11 TX-PB10
-	RCC->APB2ENR |= 0x01<<3;//IO端口B时钟使能
-	RCC->APB1ENR |= 0x01<<18;//USART3时钟使能
-	GPIOB->CRH &= 0xFFFF00FF;//端口配置高寄存器（10 11）：置零
-	GPIOB->CRH |= 0x00004F00;//MODE11：输入模式 CNF11：浮空输入 ； MODE10： 输出模式，最大速度50MHz CNF10：复用功能开漏输出
-	
+	RCC->APB2ENR |= 0x01<<3;
+	RCC->APB1ENR |= 0x01<<18;
+	GPIOB->CRH &= 0xFFFF00FF;
+	GPIOB->CRH |= 0x00004F00;
   USART3->CR1 = 0x00;
   USART3->CR2 = 0x00;
-  USART3->CR3 = 0x00;//USART3控制寄存器清零
-  USART3->GTPR = 0x00;//保护时间和预分频寄存器清零
-	
-  USART3->BRR = 36000000/375000; //波特率375K（没懂）
-  USART3->CR1 |= 0x01<<13;//USART模块使能（软件设置0 1 ）
-  USART3->CR1 |= 0x01<<5; //接受缓冲区非空中断使能：当SR中的ORE或者RXNE为“1”时产生USART中断
-//  USART3->CR1 |= 0x01<<7; //发送缓冲区空中断使能
-	USART3->CR1 |= 0x01<<12; //1个起始位，9个数据位吗，n个停止位
-	USART3->CR1 |= 0x01<<9; //奇偶校验选择：奇校验
+  USART3->CR3 = 0x00;
+  USART3->GTPR = 0x00;
+  USART3->BRR = 36000000/400000; //波特率400K
+  USART3->CR1 |= 0x01<<13;//外设使能
+  USART3->CR1 |= 0x01<<5; //接收中断
+//  USART3->CR1 |= 0x01<<7; //发送中断
+	USART3->CR1 |= 0x01<<12; //9个数据位
+	USART3->CR1 |= 0x01<<9; //奇校验
 	USART3->CR1 |= 0x01<<8; //开启校验中断
-	USART3->CR1 |= 0x01<<10; //校验控制使能：开启校验
+	USART3->CR1 |= 0x01<<10; //开启校验
   NVIC->IP[39] = 0x00; //优先级0
   NVIC->ISER[1] |= 0x01<<7; //开放中断线
-  USART3->CR1 |= 0x01<<2; //接收使能（软件设置或清除
-  USART3->CR1 |= 0x01<<3; //发送使能（软件设置或清除
+  USART3->CR1 |= 0x01<<2; //接收使能
+  USART3->CR1 |= 0x01<<3; //发送使能
 }
 
 
 bool CBUS::Transmit(char Address,char Data[],u32 TimeOut){
 	RxFinish = 0;
 	Tx('%'); //起始符
-	Tx((u8)Address); //地址发送三次
+	Tx((u8)Address); //地址
 	Tx((u8)Address); 
 	Tx((u8)Address); 
 	Print(Data);
@@ -80,13 +78,13 @@ bool CBUS::TestIfVerifyError(){
 	return TempStatus;
 }
 
-bool CBUS::WaitForReceive(u32 Ms){//没懂
+bool CBUS::WaitForReceive(u32 Ms){
 	while(Ms--){
 		SysTick->LOAD=72000;
-		SysTick->CTRL=0x00000005;//时钟源选择：处理器时钟AHB Systick使能
-		while(!(SysTick->CTRL&0x00010000))//当上次读取本寄存器后，Systick已经计数到0
+		SysTick->CTRL=0x00000005;
+		while(!(SysTick->CTRL&0x00010000))
 			if(RxFinish) break;
-		SysTick->CTRL=0x00000004;	//取消Systick的使能
+		SysTick->CTRL=0x00000004;		
 		if(RxFinish) break;
 	}
 	if(RxFinish) return 1;
@@ -107,6 +105,11 @@ void CBUS::Print(char *data){
 }
 
 void CBUS::Tx(u8 data){
-	while(!(USART3->SR&(0x01<<7)));//若数据没有从TDR寄存器中转移到移位寄存器，则循环等待
-	USART3->DR = data;//数据已转移至移位寄存器
+	while(!(USART3->SR&(0x01<<7)));
+	USART3->DR = data;
 }
+
+
+
+
+

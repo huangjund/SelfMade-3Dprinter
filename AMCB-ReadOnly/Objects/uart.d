@@ -1,0 +1,12 @@
+.\objects\uart.o: UART.cpp
+.\objects\uart.o: UART.h
+.\objects\uart.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\stm32f10x.h
+.\objects\uart.o: D:\Stm32F1Project\AMCFS-ReadOnly\RTE\RTE_Components.h
+.\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h
+.\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\uart.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\system_stm32f10x.h
+.\objects\uart.o: File.h
+.\objects\uart.o: Card.h

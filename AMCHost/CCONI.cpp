@@ -34,7 +34,7 @@ char CCONI::GetCommand(){
 }
 
 char CCONI::SetStatusBar(){
-	char TempStr[44];
+	char TempStr[50] = {0};
 	char *TempPtr = TempStr;
 	*(TempPtr++) = 'S';
 	*(TempPtr++) = 'E';
@@ -43,9 +43,9 @@ char CCONI::SetStatusBar(){
 	*(TempPtr++) = 'T';
 	*(TempPtr++) = 'A';
 	
-	for(u32 i=0;i<38;i++)
+	for(u32 i=0;i<37;i++)
 		*(TempPtr++) = Status.StatusBar[i];
-	
+
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
 		ReplyReceived = Ibus.Transmit('C',TempStr,100); //发送并记录回复状态
@@ -97,13 +97,13 @@ char CCONI::SetInfoScreen(){
 	*(TempPtr++) = Status.StateExtruderB;
 	*(TempPtr++) = Status.StateBasePlane;
 	
-	TempPtr = Num2Chr(Status.PosiX,TempPtr);
-	TempPtr = Num2Chr(Status.PosiY,TempPtr);
-	TempPtr = Num2Chr(Status.PosiZ,TempPtr);
+	TempPtr = Num2Chr(Status.PosiX+0.001,TempPtr);
+	TempPtr = Num2Chr(Status.PosiY+0.001,TempPtr);
+	TempPtr = Num2Chr(Status.PosiZ+0.001,TempPtr);
 	
-	TempPtr = Num2Chr(Status.PosiXMax,TempPtr);
-	TempPtr = Num2Chr(Status.PosiYMax,TempPtr);
-	TempPtr = Num2Chr(Status.PosiZMax,TempPtr);
+	TempPtr = Num2Chr(Status.PosiXMax+0.001,TempPtr);
+	TempPtr = Num2Chr(Status.PosiYMax+0.001,TempPtr);
+	TempPtr = Num2Chr(Status.PosiZMax+0.001,TempPtr);
 	
 	TempPtr = Num2Chr(Status.L1Max-Status.L1Reset,TempPtr);
 	TempPtr = Num2Chr(Status.L2Max-Status.L2Reset,TempPtr);
@@ -164,7 +164,7 @@ char CCONI::ConsoleDisplay(char Data[],bool Hold){
 	
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Ibus.Transmit('C',TempStr,500); //发送并记录回复状态
+		ReplyReceived = Ibus.Transmit('C',TempStr,600); //发送并记录回复状态
 		if(ReplyReceived && !Ibus.TestReply('R')){ //收到回复且校验成功
 			if(!Ibus.TestReply('N') && !Ibus.TestIfVerifyError()) //指令正确
 				break;
@@ -340,7 +340,7 @@ char* CCONI::Flo2Chr(char *Buf,double Num,u32 Int,u32 Dec,bool Sign){
 	if(Dec) *(Buf++) = '.'; //小数点(如果有小数)
 
 	for(u32 i=0;i<Dec;i++) //小数部分
-		*(Buf++) = (s64)(Num*Weight[i+1])%10 + '0';
+		*(Buf++) = (s64)(Num*Weight[i+2])%10 + '0';
 	
 	return Buf;
 }
@@ -364,7 +364,7 @@ double CCONI::Chr2Flo(char *Buf,u32 Int,u32 Dec,bool Sign){
 	if(Dec) Buf++; //小数点(如果有小数)
 
 	for(u32 i=0;i<Dec;i++) //小数部分
-		Temp += (*(Buf++)-'0')/Weight[Int-i+1];
+		Temp += (*(Buf++)-'0')/Weight[i+2];
 	
 	Temp *= Symbol;
 	

@@ -12,7 +12,7 @@ extern"C"void USART2_IRQHandler(){
 			Ibus.DataCounter = 1;
 		}
 		else if(Temp != '^'){ //数据
-			if(Ibus.DataCounter < 1152) //缓存未溢出
+			if(Ibus.DataCounter < 255) //缓存未溢出
 				Ibus.TempBuffer[Ibus.DataCounter++] = Temp; //记录数据
 		}
 		else if(Temp == '^'){ //结束符

@@ -1,6 +1,5 @@
 #include "stm32f10x.h"
 
-//ÎÂ¶È¿ØÖÆ·â×°
 class TCONI{
 	public:
 		char GetTemperatureExtruderA();

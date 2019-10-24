@@ -5,28 +5,53 @@ class AUTOMATE{
 	public:
 		void Init();
 	
-		void Checking();
+		void Checking(u8 Select);
 	
-		//LCD
+		void ClickCount();
+		u32 ClickCounter;
+	
+		void StatusBarRefresh();
 		void InfoLCDRefreash();
 		void InfoLCDRefreashCount();
 		bool FlagInfoLCDRefreash;
 		u32 InfoLCDRefreashCounter;
-		//Temperature Control
+	
 		void TCONGetStatus();
 		void TCONGetStatusCount();
 		bool FlagTCONGetStatus;
 		u32 TCONGetStatusCounter;
-		//Steper Control
+		
 		void SCONGetStatus();
 		void SCONGetStatusCount();
 		bool FlagSCONGetStatus;
 		u32 SCONGetStatusCounter;
-		//Console Control
+	
+		void FCONGetStatus();
+		void FCONGetStatusCount();
+		bool FlagFCONGetStatus;
+		u32 FCONGetStatusCounter;
+	
 		void ConsoleGetCommand();
 		void ConsoleGetCommandCount();
 		bool FlagConsoleGetCommand;
 		u32 ConsoleGetCommandCounter;
+		
+		void AUX1GetStatus();
+		void AUX1GetStatusCount();
+		bool FlagAUX1GetStatus;
+		u32 AUX1GetStatusCounter;	
+		
+		void RTCGetStatus();
+		void RTCGetStatusCount();
+		bool FlagRTCGetStatus;
+		u32 RTCGetStatusCounter;			
+		
+		void InterpreterRound();
+		void InterpreterRoundCount();
+		bool FlagInterpreterRound;
+		u32 InterpreterRoundCounter;
+		
 };
 
 extern class AUTOMATE Automate;
+

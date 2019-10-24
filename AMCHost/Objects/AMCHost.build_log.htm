@@ -5,11 +5,11 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ¦ÌVision V5.21.1.0
 Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information:  ,  , LIC=----
+License Information:  ,  , LIC=SDA01-CM90R-74ISO-BEHX6-95MIL-86TCP
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.21a
-Toolchain Path:  G:\Keil_v5\ARM\ARMCC\Bin
+Toolchain:       MDK-ARM Plus  Version: 5.21a
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 3 (build 300)
 Assembler:       Armasm.exe V5.06 update 3 (build 300)
 Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
@@ -21,43 +21,24 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
 Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
-D:\AMC\AMCHost\AMCHost.uvprojx
-Project File Date:  01/24/2019
+D:\Stm32F1Project\AMCHost\AMCHost.uvprojx
+Project File Date:  06/08/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'G:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'AMCHost'
-compiling CBUS.cpp...
-compiling Main.cpp...
-compiling Automate.cpp...
-Automate.cpp(186): warning:  #1-D: last line of file ends without a newline
-  	
-Automate.cpp: 1 warning, 0 errors
-compiling TCONI.cpp...
-compiling SCONI.cpp...
-compiling IBUS.cpp...
-compiling ABUS.cpp...
-compiling FCONI.cpp...
-compiling CCONI.cpp...
-compiling Status.cpp...
-assembling startup_stm32f10x_md.s...
-compiling Shell.cpp...
-Shell.cpp(295): warning:  #1-D: last line of file ends without a newline
-  }
-Shell.cpp: 1 warning, 0 errors
-compiling Instruction.cpp...
-compiling system_stm32f10x.c...
+*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'AMCHost'
+compiling Interpreter.cpp...
 linking...
-Program Size: Code=24096 RO-data=284 RW-data=800 ZI-data=9288  
-".\Objects\AMCHost.axf" - 0 Error(s), 2 Warning(s).
+Program Size: Code=58932 RO-data=460 RW-data=1108 ZI-data=10252  
+".\Objects\AMCHost.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
-                ARM::CMSIS:CORE:4.3.0
+                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
+                ARM::CMSIS:CORE:5.1.2
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 4.3.0
+   * Component: CORE Version: 5.1.2
 
 Package Vendor: Keil
                 http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.1.0.pack
@@ -66,21 +47,21 @@ Package Vendor: Keil
    * Component: Startup Version: 1.0.0
 
 <h2>Collection of Component include folders:</h2>
-  D:\AMC\AMCHost\RTE
-  D:\AMC\AMCHost\RTE\Device\STM32F103C8
-  G:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
-  G:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
+  D:\Stm32F1Project\AMCHost\RTE
+  D:\Stm32F1Project\AMCHost\RTE\Device\STM32F103C8
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:4.3.0
+   * Component: ARM::CMSIS:CORE:5.1.2
 
    * Component: Keil::Device:Startup:1.0.0
-      Include file:  RTE_Driver\Config\RTE_Device.h
-      Source file:   Device\Source\system_stm32f10x.c
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-Build Time Elapsed:  00:00:04
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

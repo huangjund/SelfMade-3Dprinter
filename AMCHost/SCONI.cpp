@@ -27,6 +27,8 @@ char SCONI::Motion(double Position[5],float Vmax){
 	TempPtr = Flo2Chr(TempPtr,Position[4],6,6,1);
 	
 	*(TempPtr++) = 'V'; //最高速度
+	if(Vmax > 140) Vmax = 140;
+	if(Vmax < 10) Vmax = 10;
 	TempPtr = Flo2Chr(TempPtr,Vmax,3,0,0);
 	
 	*TempPtr = 0; //结束符
@@ -43,7 +45,7 @@ char SCONI::Motion(double Position[5],float Vmax){
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('D')) return 'D'; //Done
 		else if(Cbus.TestReply('F')) return 'F'; //Cache Full
-		else if(Cbus.TestReply('K')) return 'K'; //Not Home
+		else if(Cbus.TestReply('H')) return 'H'; //Not Home
 		else if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else return 'U'; //Unknown Status
@@ -88,6 +90,7 @@ char SCONI::InitPosition(double Position[5]){
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('D')) return 'D'; //Done
 		else if(Cbus.TestReply('K')) return 'K'; //Forbiden
+		else if(Cbus.TestReply('H')) return 'H'; //Not Homed
 		else if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else return 'U'; //Unknown Status
@@ -109,25 +112,12 @@ char SCONI::AutoHoming(){
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
+		else if(Cbus.TestReply('K')) return 'K'; //Forbidden
 		else if(Cbus.TestReply('M')) return 'M'; //Now Moving
 		else return 'U'; //Unknown Status
 	}
 	else //未收到回复
 		return 'T';
-}
-
-char SCONI::WaitForHoming(u32 Time){
-	while(Time--){
-		SysTick->LOAD=72000;
-		SysTick->CTRL=0x00000005;
-		while(!(SysTick->CTRL&0x00010000));
-		SysTick->CTRL=0x00000004;
-	}	
-	if(Cbus.RxFinish){
-		if(Cbus.TestReply('D')) return 'D';
-		else return 'N';
-	}
-	return 'T';
 }
 
 char SCONI::MoveAxis(double Position,u8 Selection){
@@ -159,6 +149,8 @@ char SCONI::MoveAxis(double Position,u8 Selection){
 	
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('M')) return 'M'; //Now Moving
+		else if(Cbus.TestReply('K')) return 'K'; //Forbidden
+		else if(Cbus.TestReply('H')) return 'H'; //Not Homed
 		else if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else return 'U'; //Unknown Status
@@ -167,18 +159,52 @@ char SCONI::MoveAxis(double Position,u8 Selection){
 		return 'T';
 }
 
-char SCONI::WaitForMoving(u32 Time){
-	while(Time--){
-		SysTick->LOAD=72000;
-		SysTick->CTRL=0x00000005;
-		while(!(SysTick->CTRL&0x00010000));
-		SysTick->CTRL=0x00000004;
-	}	
-	if(Cbus.RxFinish){
-		if(Cbus.TestReply('D')) return 'D';
-		else return 'N';
+char SCONI::SetNozzleState(u8 ExtA,u8 ExtB){
+	char InsStr[4] = {'N','D','D',0};
+	if(ExtA == 1) InsStr[1] = 'E';
+	else if(ExtA == 0xFF) InsStr[1] = 'X';
+	if(ExtB == 1) InsStr[2] = 'E';
+	else if(ExtB == 0xFF) InsStr[2] = 'X';
+	
+	bool ReplyReceived = 0;
+	for(u32 i=0;i<5;i++){ //重复最多5次
+		ReplyReceived = Cbus.Transmit('S',InsStr,100); //发送并记录回复状态
+		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
+			if(!Cbus.TestReply('N')) //指令正确
+				break;
+		}
 	}
-	return 'T';
+	
+	if(ReplyReceived){ //收到回复
+		if(Cbus.TestReply('M')) return 'M'; //Now Moving
+		else if(Cbus.TestReply('K')) return 'K'; //Forbidden
+		else if(Cbus.TestReply('H')) return 'H'; //Not Homed
+		else if(Cbus.TestReply('R')) return 'R'; //Verifying Error
+		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
+		else return 'U'; //Unknown Status
+	}
+	else //未收到回复
+		return 'T';
+}
+
+bool SCONI::GetStatusBusy(){
+	bool ReplyReceived = 0;
+	for(u32 i=0;i<5;i++){ //重复最多5次
+		ReplyReceived = Cbus.Transmit('S',"Gm",100); //发送并记录回复状态
+		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
+			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
+				break;
+		}
+	}
+	
+	if(ReplyReceived){ //收到回复
+		if(Cbus.TestReply('R')) return 1; //Verifying Error
+		else if(Cbus.TestReply('N')) return 1; //Instruction Error
+		else if(Cbus.TestReply('D')) return	0;
+		else return	1;
+	}
+	else //未收到回复
+		return 1;
 }
 
 char SCONI::GetTestPointA(){
@@ -195,7 +221,7 @@ char SCONI::GetTestPointA(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TestPosition[0] = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.TestPosition[0] = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -217,7 +243,7 @@ char SCONI::GetTestPointB(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TestPosition[1] = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.TestPosition[1] = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -239,7 +265,7 @@ char SCONI::GetTestPointC(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TestPosition[2] = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.TestPosition[2] = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -261,7 +287,7 @@ char SCONI::GetTestPointD(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TestPosition[3] = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.TestPosition[3] = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -283,7 +309,7 @@ char SCONI::GetTestPointM(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TestPosition[4] = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.TestPosition[4] = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -305,7 +331,7 @@ char SCONI::GetPositionX(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PosiX = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.PosiX = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -327,7 +353,7 @@ char SCONI::GetPositionY(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PosiY = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.PosiY = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -349,7 +375,7 @@ char SCONI::GetPositionZ(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PosiZ = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.PosiZ = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -371,7 +397,7 @@ char SCONI::GetPositionA(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PosiA = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.PosiA = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -393,7 +419,7 @@ char SCONI::GetPositionB(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PosiB = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.PosiB = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -415,7 +441,7 @@ char SCONI::GetPositionXMax(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PosiXMax = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.PosiXMax = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -437,7 +463,7 @@ char SCONI::GetPositionYMax(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PosiYMax = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.PosiYMax = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
@@ -459,13 +485,66 @@ char SCONI::GetPositionZMax(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PosiZMax = Chr2Flo((char*)(Cbus.Buffer+1),6,6,1);
+			Status.PosiZMax = Chr2Flo((char*)(Cbus.Buffer+4),6,6,1);
 			return 'D';
 		}
 	}
 	else //未收到回复
 		return 'T';
 }
+
+char SCONI::GetStatusNozzleA(){
+	bool ReplyReceived = 0;
+	for(u32 i=0;i<5;i++){ //重复最多5次
+		ReplyReceived = Cbus.Transmit('S',"Ga",100); //发送并记录回复状态
+		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
+			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
+				break;
+		}
+	}
+	
+	if(ReplyReceived){ //收到回复
+		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
+		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
+		else if(Cbus.TestReply('E')){
+			Status.NozzleState[0] = 1;
+			return	'D';
+		}
+		else{
+			Status.NozzleState[0] = 0;
+			return	'D';
+		}
+	}
+	else //未收到回复
+		return 'T';
+}
+
+char SCONI::GetStatusNozzleB(){
+	bool ReplyReceived = 0;
+	for(u32 i=0;i<5;i++){ //重复最多5次
+		ReplyReceived = Cbus.Transmit('S',"Gb",100); //发送并记录回复状态
+		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
+			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
+				break;
+		}
+	}
+	
+	if(ReplyReceived){ //收到回复
+		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
+		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
+		else if(Cbus.TestReply('E')){
+			Status.NozzleState[1] = 1;
+			return	'D';
+		}
+		else{
+			Status.NozzleState[1] = 0;
+			return	'D';
+		}
+	}
+	else //未收到回复
+		return 'T';
+}
+
 
 char SCONI::GetStatusFA(){
 	bool ReplyReceived = 0;
@@ -504,8 +583,12 @@ char SCONI::GetStatusLeveling(){
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
+		else if(Cbus.TestReply('E')){
+			Status.StateLeveling = 'E';
+			return	'D';
+		}
 		else{
-			Status.StateLeveling = Cbus.Buffer[1];
+			Status.StateLeveling = 'D';
 			return	'D';
 		}
 	}
@@ -593,7 +676,7 @@ char SCONI::GetL1Rest(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.L1Reset = Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.L1Reset = Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -615,7 +698,7 @@ char SCONI::GetL2Rest(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.L2Reset = Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.L2Reset = Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -637,7 +720,7 @@ char SCONI::GetL1Max(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.L1Max = Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.L1Max = Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -659,7 +742,7 @@ char SCONI::GetL2Max(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.L2Max = Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.L2Max = Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -696,6 +779,8 @@ char SCONI::SetPosition(double Position,char Select){
 	
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('D')) return 'D'; //Done
+		else if(Cbus.TestReply('K')) return 'K'; //Forbidden
+		else if(Cbus.TestReply('H')) return 'H'; //Not Homed
 		else if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else return 'U'; //Unknown Status
@@ -725,7 +810,7 @@ char SCONI::EnableStepper(){
 		return 'T';
 }
 
-char SCONI::DisableStepper(){
+/*char SCONI::DisableStepper(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
 		ReplyReceived = Cbus.Transmit('S',"SD",100); //发送并记录回复状态
@@ -744,7 +829,7 @@ char SCONI::DisableStepper(){
 	}
 	else //未收到回复
 		return 'T';
-}
+}*/
 
 char SCONI::EnableIDP(){
 	bool ReplyReceived = 0;
@@ -825,7 +910,7 @@ char* SCONI::Flo2Chr(char *Buf,double Num,u32 Int,u32 Dec,bool Sign){
 	if(Dec) *(Buf++) = '.'; //小数点(如果有小数)
 
 	for(u32 i=0;i<Dec;i++) //小数部分
-		*(Buf++) = (s64)(Num*Weight[i+1])%10 + '0';
+		*(Buf++) = (s64)(Num*Weight[i+2])%10 + '0';
 	
 	return Buf;
 }
@@ -849,7 +934,7 @@ double SCONI::Chr2Flo(char *Buf,u32 Int,u32 Dec,bool Sign){
 	if(Dec) Buf++; //小数点(如果有小数)
 
 	for(u32 i=0;i<Dec;i++) //小数部分
-		Temp += (*(Buf++)-'0')/Weight[Int-i+1];
+		Temp += (*(Buf++)-'0')/Weight[i+2];
 	
 	Temp *= Symbol;
 	

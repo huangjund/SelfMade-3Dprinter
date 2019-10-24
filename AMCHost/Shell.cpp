@@ -8,16 +8,34 @@
 SHELL Shell;
 
 void SHELL::DictInit(){
-	Cconi.ExpandDictionary("Get");
 	Cconi.ExpandDictionary("Set");
+	Cconi.ExpandDictionary("Shift");
+	Cconi.ExpandDictionary("Enable");
+	Cconi.ExpandDictionary("Disable");
+	Cconi.ExpandDictionary("Start");
+	Cconi.ExpandDictionary("Halt");
+	Cconi.ExpandDictionary("Pause");
+	Cconi.ExpandDictionary("Resume");
+	Cconi.ExpandDictionary("Reload");
 	Cconi.ExpandDictionary("Temperature");
-	Cconi.ExpandDictionary("Status");
-	Cconi.ExpandDictionary("Aim");
-	Cconi.ExpandDictionary("Power");
+	Cconi.ExpandDictionary("Warning");
+	Cconi.ExpandDictionary("Error");
+	Cconi.ExpandDictionary("Manufacture");
+	Cconi.ExpandDictionary("Main");
+	Cconi.ExpandDictionary("Auxiliary");
 	Cconi.ExpandDictionary("Cooler");
+	Cconi.ExpandDictionary("Power");
 	Cconi.ExpandDictionary("Extruder");
 	Cconi.ExpandDictionary("BasePlane");
-	Cconi.ExpandDictionary("Environment");
+	Cconi.ExpandDictionary("Axis");
+	Cconi.ExpandDictionary("StepperMotors");
+	Cconi.ExpandDictionary("Nozzle");
+	Cconi.ExpandDictionary("Storage");
+	Cconi.ExpandDictionary("Filament");
+	Cconi.ExpandDictionary("Illuminator");
+	Cconi.ExpandDictionary("IDP");
+	Cconi.ExpandDictionary("Info");
+	Cconi.ExpandDictionary("Report");
 	
 	Cconi.ExpandDictionary("AutoHoming");
 	
@@ -27,86 +45,119 @@ void SHELL::DictInit(){
 void SHELL::Init(){
 	Flush();
 	DictInit();
-	Instruct.GetTemExtAInit();
-	Instruct.GetTemExtBInit();
-	Instruct.GetTemBPInit();
-	Instruct.GetTemEnvInit();
-	Instruct.RefreshDictInit();
-	Instruct.GetColPowEAInit();
-	Instruct.GetColPowEBInit();
-	Instruct.GetTemEASInit();
-	Instruct.GetTemEBSInit();
-	Instruct.GetTemBPSInit();
-	Instruct.SetTemExtAInit();
-	Instruct.SetTemExtBInit();
-	Instruct.SetTemBPInit();
-	Instruct.SetColExtAInit();
-	Instruct.SetColExtBInit();
-	Instruct.GetStaExtAInit();
-	Instruct.GetStaExtBInit();
-	Instruct.GetStaBPInit();
-	Instruct.AutoHomeInit();
 }
 
 void SHELL::Decoder(){
 	if(!Received) return;
-	Slice(); //分割成词组
 	
-	if(Identify(Instruct.GetTemExtA_InsSet,Instruct.GetTemExtAOperand)){
-		Instruct.GetTemExtA();
+	if(Match(ComBuffer,"Set Temperature Extruder A 0")){
+		u32 Temperature = 0;
+		GetNumber(ComBuffer,Temperature);
+		Instruct.SetTemExtA(Temperature);
 	}
-	else if(Identify(Instruct.GetTemExtB_InsSet,Instruct.GetTemExtBOperand)){
-		Instruct.GetTemExtB();
+	else if(Match(ComBuffer,"Set Temperature Extruder B 0")){
+		u32 Temperature = 0;
+		GetNumber(ComBuffer,Temperature);
+		Instruct.SetTemExtB(Temperature);
 	}
-	else if(Identify(Instruct.GetTemBP_InsSet,Instruct.GetTemBPOperand)){
-		Instruct.GetTemBP();
+	else if(Match(ComBuffer,"Set Temperature BasePlane 0")){
+		u32 Temperature = 0;
+		GetNumber(ComBuffer,Temperature);
+		Instruct.SetTemBP(Temperature);
 	}
-	else if(Identify(Instruct.GetTemEnv_InsSet,Instruct.GetTemEnvOperand)){
-		Instruct.GetTemEnv();
+	else if(Match(ComBuffer,"Set Power Cooler A 0")){
+		u32 Power = 0;
+		GetNumber(ComBuffer,Power);
+		Instruct.SetColExtA(Power);
 	}
-	else if(Identify(Instruct.GetColPowEA_InsSet,Instruct.GetColPowEAOperand)){
-		Instruct.GetColPowEA();
+	else if(Match(ComBuffer,"Set Power Cooler B 0")){
+		u32 Power = 0;
+		GetNumber(ComBuffer,Power);
+		Instruct.SetColExtB(Power);
 	}
-	else if(Identify(Instruct.GetColPowEB_InsSet,Instruct.GetColPowEBOperand)){
-		Instruct.GetColPowEB();
-	}
-	else if(Identify(Instruct.GetTemEAS_InsSet,Instruct.GetTemEASOperand)){
-		Instruct.GetTemEAS();
-	}
-	else if(Identify(Instruct.GetTemEBS_InsSet,Instruct.GetTemEBSOperand)){
-		Instruct.GetTemEBS();
-	}
-	else if(Identify(Instruct.GetTemBPS_InsSet,Instruct.GetTemBPSOperand)){
-		Instruct.GetTemBPS();
-	}
-	else if(Identify(Instruct.SetTemExtA_InsSet,Instruct.SetTemExtAOperand)){
-		Instruct.SetTemExtA();
-	}
-	else if(Identify(Instruct.SetTemExtB_InsSet,Instruct.SetTemExtBOperand)){
-		Instruct.SetTemExtB();
-	}
-	else if(Identify(Instruct.SetTemBP_InsSet,Instruct.SetTemBPOperand)){
-		Instruct.SetTemBP();
-	}
-	else if(Identify(Instruct.SetColExtA_InsSet,Instruct.SetColExtAOperand)){
-		Instruct.SetColExtA();
-	}
-	else if(Identify(Instruct.SetColExtB_InsSet,Instruct.SetColExtBOperand)){
-		Instruct.SetColExtB();
-	}
-	else if(Identify(Instruct.GetStaExtA_InsSet,Instruct.GetStaExtAOperand)){
-		Instruct.GetStaExtA();
-	}
-	else if(Identify(Instruct.GetStaExtB_InsSet,Instruct.GetStaExtBOperand)){
-		Instruct.GetStaExtB();
-	}
-	else if(Identify(Instruct.GetStaBP_InsSet,Instruct.GetStaBPOperand)){
-		Instruct.GetStaBP();
-	}
-	else if(Identify(Instruct.AutoHome_InsSet,Instruct.AutoHomeOperand)){
+	else if(Match(ComBuffer,"AutoHoming")){
 		Instruct.AutoHome();
 	}
-	else if(Identify(Instruct.RefreshDict_InsSet,Instruct.RefreshDictOperand)){
+	else if(Match(ComBuffer,"Shift Axis X 0")){
+		u32 Position = 0;
+		GetNumber(ComBuffer,Position);
+		Instruct.MoveAxisX(Position);
+	}
+	else if(Match(ComBuffer,"Shift Axis Y 0")){
+		u32 Position = 0;
+		GetNumber(ComBuffer,Position);
+		Instruct.MoveAxisY(Position);
+	}
+	else if(Match(ComBuffer,"Shift Axis Z 0")){
+		u32 Position = 0;
+		GetNumber(ComBuffer,Position);
+		Instruct.MoveAxisZ(Position);
+	}
+	else if(Match(ComBuffer,"Enable Nozzle A")){
+		Instruct.EnableNozzleA();
+	}
+	else if(Match(ComBuffer,"Disable Nozzle A")){
+		Instruct.DisableNozzleA();
+	}
+	else if(Match(ComBuffer,"Enable Nozzle B")){
+		Instruct.EnableNozzleB();
+	}
+	else if(Match(ComBuffer,"Disable Nozzle B")){
+		Instruct.DisableNozzleB();
+	}
+	
+	else if(Match(ComBuffer,"Enable StepperMotots")){
+		Instruct.EnableStepper();
+	}
+	else if(Match(ComBuffer,"Enable IDP")){
+		Instruct.EnableIDP();
+	}
+	else if(Match(ComBuffer,"Disable IDP")){
+		Instruct.DisableIDP();
+	}
+	else if(Match(ComBuffer,"Enable Main Illuminator")){
+		Instruct.EnableMainLight();
+	}
+	else if(Match(ComBuffer,"Disable Main Illuminator")){
+		Instruct.DisableMainLight();
+	}
+	else if(Match(ComBuffer,"Enable Auxiliary Illuminator")){
+		Instruct.EnableAuxiliaryLight();
+	}
+	else if(Match(ComBuffer,"Disable Auxiliary Illuminator")){
+		Instruct.DisableAuxiliaryLight();
+	}
+	else if(Match(ComBuffer,"Storage Info")){
+		Instruct.StorageInfo();
+	}
+	else if(Match(ComBuffer,"Manufacture Start")){
+		Instruct.StartManufacturing();
+	}
+	else if(Match(ComBuffer,"Manufacture Halt")){
+		Instruct.StopManufacturing();
+	}
+	else if(Match(ComBuffer,"Manufacture Pause")){
+		Instruct.PauseManufacturing();
+	}
+	else if(Match(ComBuffer,"Manufacture Resume")){
+		Instruct.ResumeManufacturing();
+	}
+	else if(Match(ComBuffer,"Reload Filament")){
+		Instruct.ReloadFilament();
+	}
+	else if(Match(ComBuffer,"Warning Info")){
+		Instruct.WarningInfo();
+	}
+	else if(Match(ComBuffer,"Error Info")){
+		Instruct.ErrorInfo();
+	}
+	else if(Match(ComBuffer,"Manufacture Info")){
+		Instruct.ManufacturingInfo();
+	}
+	else if(Match(ComBuffer,"Manufacture Report")){
+		Instruct.ManufacturingReport();
+	}
+	else if(Match(ComBuffer,"Refresh Dictionary")){
 		Instruct.RefreshDict();
 	}
 	else{
@@ -115,78 +166,17 @@ void SHELL::Decoder(){
 	Flush();
 }
 
-void SHELL::Flush(){//清除命令缓存
+void SHELL::Flush(){
 	for(u32 i=0;i<256;i++)
 		ComBuffer[i] = 0;
 	Received = 0;
 
 }
 
-u32 SHELL::GetNumber(u32 Index){//index: 第几个操作数数字量
-	u32 Counter = 0;
-	for(u32 i=0;i<Word.Number;i++){
-		if(Word.Attribute[i] == 'N'){
-			if(Counter == Index)
-				return Chr2Num(Word.Data[i]);
-			Counter++;
-		}
-	}
-	return 0;
-}
-
-void SHELL::Slice(){
-	Word.Number = 0;
-	char *TempPtr = ComBuffer;
-	for(u32 i=0;i<30;i++){
-		TempPtr = AddWord(TempPtr);
-		if(!(*TempPtr)) break;
-	}
-}
-
 char SHELL::Upper(char Data){
 	if(Data>=97 && Data<=122)
 		return Data-32;
 	return Data;
-}
-
-bool SHELL::Identify(char **Dic,u32 Number){
-	u32 InsDataCounter[30] = {}; //指令关键词计数器
-	u32 Index; //目标索引
-	for(u32 i=0;i<30&&Dic[i][0];i++){ //在字典中查找
-		u32 Temp = Search(Dic[i],Index);
-		if(Temp){
-			InsDataCounter[Index] = Temp;
-		}
-	}
-	
-	u32 ComDataCounter[30] = {}; //键入命令关键词计数器
-	for(u32 i=0;i<Word.Number;i++){ //在键入命令中查找
-		u32 Temp = Search(Word.Data[i],Index);
-		if(Temp){
-			ComDataCounter[Index] = Temp;
-		}
-	}
-	
-	for(u32 i=0;i<30;i++){ //关键词匹配检测
-		if(InsDataCounter[i] != ComDataCounter[i])
-			return 0;
-	}
-	if(Number != CountNumber()) //操作数数量检测
-		return 0;
-	
-	return 1;
-	
-}
-
-u32 SHELL::Search(char *Data,u32 &Index){//在字典中寻找Data
-	u32 Counter = 0;
-	for(u32 i=0;i<Dictionary.Number;i++)
-		if(Compare(Data,Dictionary.Data[i])){
-			Index = i;
-			Counter++;
-		}
-		
-	return Counter;
 }
 
 bool SHELL::Compare(char StrA[],char StrB[]){
@@ -198,37 +188,33 @@ bool SHELL::Compare(char StrA[],char StrB[]){
 	return 1;
 }
 
-u32 SHELL::CountNumber(){
-	u32 Counter = 0;
-	for(u32 i=0;i<Word.Number;i++)
-		if(Word.Attribute[i] == 'N')
-			Counter++;
-		
-	return Counter;
-}
-
-u32 SHELL::CountWord(){
-	u32 Counter = 0;
-	for(u32 i=0;i<Word.Number;i++)
-		if(Word.Attribute[i] == 'L')
-			Counter++;
-		
-	return Counter;
-}
-
-bool SHELL::IsLetter(char Data){
-	if(Data>='A' && Data<='Z') return 1;
-	if(Data>='a' && Data<='z') return 1;
+bool SHELL::Match(char *SentenceA,char *SentenceB){
+	char *PtrA = SentenceA;
+	char *PtrB = SentenceB;
+	char BufferA[24] = {0};
+	char BufferB[24] = {0};
+	char AttributeA = 'E';
+	char AttributeB = 'E';
+	for(u8 i=0;i<30;i++){
+		PtrA = GetWord(PtrA,BufferA,AttributeA);
+		PtrB = GetWord(PtrB,BufferB,AttributeB);
+		if(AttributeA != AttributeB) 
+			return 0;
+		if(AttributeA=='L' && !Compare(BufferA,BufferB))
+			return 0;
+		if(AttributeA == 'E')
+			return 1;
+	}
 	return 0;
 }
 
-char* SHELL::AddWord(char *Ptr){
+char* SHELL::GetWord(char *Ptr,char Buffer[24], char &Attr){
 	char AttrLetter = 0;
 	char AttrNumber = 0;
-	char *WordPtr = Word.Data[Word.Number];
+	char *WordPtr = Buffer;
 	
 	for(u32 i=0;i<24;i++)
-		Word.Data[Word.Number][i] = 0;
+		Buffer[i] = 0;
 	
 	for(u32 i=0;i<23;i++){
 		if(IsLetter(*Ptr)) //是字母
@@ -239,12 +225,12 @@ char* SHELL::AddWord(char *Ptr){
 		*(WordPtr++) = *(Ptr++);
 	}
 	
-	if(WordPtr != Word.Data[Word.Number]){ //是非符号字符串	
+	Attr = 'E';
+	if(WordPtr != Buffer){ //是有效单词(长度大于0)
 		if(AttrLetter) //包括字母
-			Word.Attribute[Word.Number] = 'L';
+			Attr = 'L';
 		else if(!AttrLetter && AttrNumber) //仅包括数字
-			Word.Attribute[Word.Number] = 'N';
-		Word.Number++;
+			Attr = 'N';
 	}
 		
 	for(u32 i=0;i<256;i++){ //移动到下一个词或结尾处
@@ -253,8 +239,35 @@ char* SHELL::AddWord(char *Ptr){
 		else if(!(*Ptr)) break;
 		Ptr++;
 	}	
-
 	return Ptr;
+}
+
+char* SHELL::GetNumber(char *Ptr,u32 &Number){
+	Number = 0;
+	char *Index = Ptr;	
+	for(u32 i=0;i<255;i++){
+		if(*Index == 0) return Index; 
+		if(IsNumber(*Index)) break;
+		else Index++;
+	}
+	char Buffer[24] = {0};
+	char Attribute = 'E';
+	for(u8 i=0;i<30;i++){
+		Index = GetWord(Index,Buffer,Attribute);
+		if(Attribute == 'N'){
+			Number = Chr2Num(Buffer);
+			return Index;
+		}
+		if(Attribute == 'E')
+			return Index;
+	}
+	return Index;
+}
+
+bool SHELL::IsLetter(char Data){
+	if(Data>='A' && Data<='Z') return 1;
+	if(Data>='a' && Data<='z') return 1;
+	return 0;
 }
 
 bool SHELL::IsNumber(char Data){
@@ -293,3 +306,5 @@ u32 SHELL::Chr2Num(char *Data){
 	
 	return Temp;
 }
+
+

@@ -8,7 +8,7 @@ TCONI Tconi;
 char TCONI::GetTemperatureExtruderA(){	
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"GA",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"GA",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -19,7 +19,7 @@ char TCONI::GetTemperatureExtruderA(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TempExtruderA = Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.TempExtruderA = Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -30,7 +30,7 @@ char TCONI::GetTemperatureExtruderA(){
 char TCONI::GetTemperatureExtruderB(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"GB",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"GB",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -41,7 +41,7 @@ char TCONI::GetTemperatureExtruderB(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TempExtruderB = Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.TempExtruderB = Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -52,7 +52,7 @@ char TCONI::GetTemperatureExtruderB(){
 char TCONI::GetTemperatureBasePlane(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"GG",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"GG",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -63,7 +63,7 @@ char TCONI::GetTemperatureBasePlane(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TempBasePlane = Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.TempBasePlane = Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -74,7 +74,7 @@ char TCONI::GetTemperatureBasePlane(){
 char TCONI::GetTemperatureEnvironment(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"GE",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"GE",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -85,7 +85,7 @@ char TCONI::GetTemperatureEnvironment(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TempAir = Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.TempAir = Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -109,7 +109,7 @@ char TCONI::SetTemperatureEASetting(u16 T){
 	
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',TempStr,100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',TempStr,10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N')) //指令正确
 				break;
@@ -118,6 +118,8 @@ char TCONI::SetTemperatureEASetting(u16 T){
 	
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('D')) return 'D'; //Done
+		else if(Cbus.TestReply('H')) return 'H'; //Too High
+		else if(Cbus.TestReply('L')) return 'L'; //Too Low
 		else if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else return 'U'; //Unknown Status
@@ -142,7 +144,7 @@ char TCONI::SetTemperatureEBSetting(u16 T){
 	
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',TempStr,100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',TempStr,10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N')) //指令正确
 				break;
@@ -151,6 +153,8 @@ char TCONI::SetTemperatureEBSetting(u16 T){
 	
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('D')) return 'D'; //Done
+		else if(Cbus.TestReply('H')) return 'H'; //Too High
+		else if(Cbus.TestReply('L')) return 'L'; //Too Low
 		else if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else return 'U'; //Unknown Status
@@ -175,7 +179,7 @@ char TCONI::SetTemperatureBPSetting(u16 T){
 	
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',TempStr,100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',TempStr,10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N')) //指令正确
 				break;
@@ -184,6 +188,8 @@ char TCONI::SetTemperatureBPSetting(u16 T){
 	
 	if(ReplyReceived){ //收到回复
 		if(Cbus.TestReply('D')) return 'D'; //Done
+		else if(Cbus.TestReply('H')) return 'H'; //Too High
+		else if(Cbus.TestReply('L')) return 'L'; //Too Low
 		else if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else return 'U'; //Unknown Status
@@ -195,7 +201,7 @@ char TCONI::SetTemperatureBPSetting(u16 T){
 char TCONI::GetTemperatureEASetting(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"TA",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"TA",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -206,7 +212,7 @@ char TCONI::GetTemperatureEASetting(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TempExtruderASet =	Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.TempExtruderASet =	Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -217,7 +223,7 @@ char TCONI::GetTemperatureEASetting(){
 char TCONI::GetTemperatureEBSetting(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"TB",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"TB",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -228,7 +234,7 @@ char TCONI::GetTemperatureEBSetting(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TempExtruderBSet =	Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.TempExtruderBSet =	Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -239,7 +245,7 @@ char TCONI::GetTemperatureEBSetting(){
 char TCONI::GetTemperatureBPSetting(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"TG",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"TG",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -250,7 +256,7 @@ char TCONI::GetTemperatureBPSetting(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.TempBasePlaneSet =	Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.TempBasePlaneSet =	Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -274,7 +280,7 @@ char TCONI::SetCoolerPowerExtruderA(u8 P){
 	
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',TempStr,100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',TempStr,10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N')) //指令正确
 				break;
@@ -307,7 +313,7 @@ char TCONI::SetCoolerPowerExtruderB(u8 P){
 	
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',TempStr,100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',TempStr,10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N')) //指令正确
 				break;
@@ -327,7 +333,7 @@ char TCONI::SetCoolerPowerExtruderB(u8 P){
 char TCONI::GetCoolerPowerExtruderA(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"RA",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"RA",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -338,7 +344,7 @@ char TCONI::GetCoolerPowerExtruderA(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PowerCoolerExtruderA =	Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.PowerCoolerExtruderA =	Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -349,7 +355,7 @@ char TCONI::GetCoolerPowerExtruderA(){
 char TCONI::GetCoolerPowerExtruderB(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"RB",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"RB",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -360,7 +366,7 @@ char TCONI::GetCoolerPowerExtruderB(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PowerCoolerExtruderB =	Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.PowerCoolerExtruderB =	Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -371,7 +377,7 @@ char TCONI::GetCoolerPowerExtruderB(){
 char TCONI::GetHeaterPowerExtruderA(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"HA",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"HA",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -382,7 +388,7 @@ char TCONI::GetHeaterPowerExtruderA(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PowerHeaterExtruderA =	Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.PowerHeaterExtruderA =	Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -393,7 +399,7 @@ char TCONI::GetHeaterPowerExtruderA(){
 char TCONI::GetHeaterPowerExtruderB(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"HB",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"HB",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -404,7 +410,7 @@ char TCONI::GetHeaterPowerExtruderB(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PowerHeaterExtruderB =	Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.PowerHeaterExtruderB =	Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -415,7 +421,7 @@ char TCONI::GetHeaterPowerExtruderB(){
 char TCONI::GetHeaterPowerBasePlane(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"HG",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"HG",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -426,7 +432,7 @@ char TCONI::GetHeaterPowerBasePlane(){
 		if(Cbus.TestReply('R')) return 'R'; //Verifying Error
 		else if(Cbus.TestReply('N')) return 'N'; //Instruction Error
 		else{
-			Status.PowerHeaterBasePlane =	Chr2Flo((char*)(Cbus.Buffer+1),3,0,0);
+			Status.PowerHeaterBasePlane =	Chr2Flo((char*)(Cbus.Buffer+4),3,0,0);
 			return 'D';
 		}
 	}
@@ -437,7 +443,7 @@ char TCONI::GetHeaterPowerBasePlane(){
 char TCONI::GetStatusExtruderA(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"EA",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"EA",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -459,7 +465,7 @@ char TCONI::GetStatusExtruderA(){
 char TCONI::GetStatusExtruderB(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"EB",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"EB",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -481,7 +487,7 @@ char TCONI::GetStatusExtruderB(){
 char TCONI::GetStatusBasePlane(){
 	bool ReplyReceived = 0;
 	for(u32 i=0;i<5;i++){ //重复最多5次
-		ReplyReceived = Cbus.Transmit('T',"EG",100); //发送并记录回复状态
+		ReplyReceived = Cbus.Transmit('T',"EG",10); //发送并记录回复状态
 		if(ReplyReceived && !Cbus.TestReply('R')){ //收到回复且校验成功
 			if(!Cbus.TestReply('N') && !Cbus.TestIfVerifyError()) //指令正确
 				break;
@@ -539,7 +545,7 @@ char* TCONI::Flo2Chr(char *Buf,double Num,u32 Int,u32 Dec,bool Sign){
 	if(Dec) *(Buf++) = '.'; //小数点(如果有小数)
 
 	for(u32 i=0;i<Dec;i++) //小数部分
-		*(Buf++) = (s64)(Num*Weight[i+1])%10 + '0';
+		*(Buf++) = (s64)(Num*Weight[i+2])%10 + '0';
 	
 	return Buf;
 }
@@ -563,7 +569,7 @@ double TCONI::Chr2Flo(char *Buf,u32 Int,u32 Dec,bool Sign){
 	if(Dec) Buf++; //小数点(如果有小数)
 
 	for(u32 i=0;i<Dec;i++) //小数部分
-		Temp += (*(Buf++)-'0')/Weight[Int-i+1];
+		Temp += (*(Buf++)-'0')/Weight[i+2];
 	
 	Temp *= Symbol;
 	

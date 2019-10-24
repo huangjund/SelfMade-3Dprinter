@@ -1,0 +1,15 @@
+.\objects\m-fa.o: M-FA.cpp
+.\objects\m-fa.o: M-FA.h
+.\objects\m-fa.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\stm32f10x.h
+.\objects\m-fa.o: D:\Stm32F1Project\AMCHost\RTE\RTE_Components.h
+.\objects\m-fa.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h
+.\objects\m-fa.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\m-fa.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\m-fa.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\m-fa.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\m-fa.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\system_stm32f10x.h
+.\objects\m-fa.o: SCONI.h
+.\objects\m-fa.o: TCONI.h
+.\objects\m-fa.o: FCONI.h
+.\objects\m-fa.o: AuxIO.h
+.\objects\m-fa.o: Status.h

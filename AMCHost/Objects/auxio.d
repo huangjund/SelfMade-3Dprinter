@@ -1,0 +1,12 @@
+.\objects\auxio.o: AuxIO.cpp
+.\objects\auxio.o: AuxIO.h
+.\objects\auxio.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\stm32f10x.h
+.\objects\auxio.o: D:\Stm32F1Project\AMCHost\RTE\RTE_Components.h
+.\objects\auxio.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h
+.\objects\auxio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\auxio.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\auxio.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\auxio.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\auxio.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\system_stm32f10x.h
+.\objects\auxio.o: ABUS.h
+.\objects\auxio.o: Status.h

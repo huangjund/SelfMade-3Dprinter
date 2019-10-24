@@ -3,7 +3,10 @@
 #include "IBUS.h"
 #include "ABUS.h"
 #include "Shell.h"
+#include "RTClock.h"
 #include "Automate.h"
+#include "Interpreter.h"
+
 void Delay_Ms(u32 n){
 	while(n--){
 		SysTick->LOAD = 72000;
@@ -20,13 +23,16 @@ int main(){
   AFIO->MAPR &= 0xF0FFFFFF;
   AFIO->MAPR |= 0x02000000;
 	Delay_Ms(5000);
+	RTClock.Init();
 	Cbus.Init();
 	Ibus.Init();
+	Abus.Init();
 	Automate.Init();
 	Shell.Init();
+	Interpreter.Init();	
 	
 	while(1)
-		Automate.Checking();
+		Automate.Checking(0xFF);
 }
 
 

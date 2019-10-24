@@ -405,14 +405,14 @@
               <FilePath>.\CBUS.cpp</FilePath>
             </File>
             <File>
-              <FileName>SCONI.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\SCONI.cpp</FilePath>
-            </File>
-            <File>
               <FileName>CBUS.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\CBUS.h</FilePath>
+            </File>
+            <File>
+              <FileName>SCONI.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\SCONI.cpp</FilePath>
             </File>
             <File>
               <FileName>SCONI.h</FileName>
@@ -479,6 +479,16 @@
               <FileType>5</FileType>
               <FilePath>.\ABUS.h</FilePath>
             </File>
+            <File>
+              <FileName>AuxIO.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\AuxIO.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AuxIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\AuxIO.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -522,6 +532,36 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Interpreter</GroupName>
+          <Files>
+            <File>
+              <FileName>Interpreter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Interpreter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Interpreter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Interpreter.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>RTClock</GroupName>
+          <Files>
+            <File>
+              <FileName>RTClock.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\RTClock.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RTClock.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\RTClock.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
@@ -534,8 +574,8 @@
   <RTE>
     <apis/>
     <components>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="4.3.0" condition="Cortex-M Device">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.5.0"/>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.0.1" condition="ARMv6_7_8-M Device">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.0.1"/>
         <targetInfos>
           <targetInfo name="AMCHost"/>
         </targetInfos>
